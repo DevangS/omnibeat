@@ -28,6 +28,13 @@ namespace OmniBeat
         {
             InitializeComponent();
 
+            // *************************************************************
+            // Uses the Person class in the Window code-behind
+            
+            Person person = new Person();
+            this.DataContext = person;
+            // *************************************************************
+
             MultitouchScreen.AllowNonContactEvents = true;
 
             spaceProvider = new InteractiveSpaceProviderDLL();

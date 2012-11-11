@@ -1,0 +1,3 @@
+﻿For Erica:
+	- It won't compile AND run if the kinect is not connected via USB
+	- All you need to do is build the project only (F7, or on your MAC: fn + F7)
