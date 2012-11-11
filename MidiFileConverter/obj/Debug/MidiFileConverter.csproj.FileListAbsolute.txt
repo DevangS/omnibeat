@@ -14,3 +14,20 @@ C:\Users\Devang\Downloads\NAudio-Source\MidiFileConverter\obj\Debug\MarkHeath.Mi
 C:\Users\Devang\Downloads\NAudio-Source\MidiFileConverter\obj\Debug\MidiFileConverter.csproj.GenerateResource.Cache
 C:\Users\Devang\Downloads\NAudio-Source\MidiFileConverter\obj\Debug\MIDI File Converter.exe
 C:\Users\Devang\Downloads\NAudio-Source\MidiFileConverter\obj\Debug\MIDI File Converter.pdb
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\midi_file_converter.html
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\NamingRules.xml
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\MIDI File Converter.exe.config
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\MIDI File Converter.exe
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\MIDI File Converter.pdb
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\NAudio.dll
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\NAudio.pdb
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\bin\Debug\NAudio.xml
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\NAudio.Utils.AboutForm.resources
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.AdvancedOptionsForm.resources
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.MainForm.resources
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.Properties.Resources.resources
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\ResGen.read.1.tlog
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\ResGen.write.1.tlog
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MIDI File Converter.exe
+C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MIDI File Converter.pdb
