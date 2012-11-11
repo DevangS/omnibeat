@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<depthSurfHomography type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    5.3911662509635405e-001 9.7724025185088621e-003
+    -5.9370572676103862e+001 3.3812913227945690e-002
+    4.6171284282256680e-001 1.3517640220931264e+002
+    1.4365527145346051e-004 4.0730456733229496e-005 1.</data></depthSurfHomography>
+</opencv_storage>
