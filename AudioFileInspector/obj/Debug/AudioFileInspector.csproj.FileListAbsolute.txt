@@ -1,0 +1,16 @@
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\audio_file_inspector.html
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\AudioFileInspector.exe
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\AudioFileInspector.pdb
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\NAudio.dll
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\System.ComponentModel.Composition.dll
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\NAudio.pdb
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\bin\Debug\NAudio.xml
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.csprojResolveAssemblyReference.cache
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\NAudio.Utils.AboutForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.AudioFileInspectorForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.FindForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.OptionsForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.Properties.Resources.resources
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.csproj.GenerateResource.Cache
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.exe
+C:\Users\Devang\Downloads\NAudio-Source\AudioFileInspector\obj\Debug\AudioFileInspector.pdb

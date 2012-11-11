@@ -1,0 +1,16 @@
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\MixDiff.exe.config
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\MixDiff.exe
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\MixDiff.pdb
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\NAudio.dll
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\NAudio.pdb
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\bin\Debug\NAudio.xml
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MixDiff.csprojResolveAssemblyReference.cache
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\NAudio.Utils.AboutForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MarkHeath.AudioUtils.Images.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MarkHeath.AudioUtils.MixDiffForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MarkHeath.AudioUtils.PropertiesForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MarkHeath.AudioUtils.Properties.Resources.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MarkHeath.AudioUtils.SettingsForm.resources
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MixDiff.csproj.GenerateResource.Cache
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MixDiff.exe
+C:\Users\Devang\Downloads\NAudio-Source\MixDiff\obj\Debug\MixDiff.pdb
