@@ -166,7 +166,7 @@ namespace OmniBeat
             openHats[index] = !openHats[index];
             if (openHats[index])
             {
-                pattern[3, index] = 0;
+                pattern[3, index] = 127;
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Open Hats " + index);
             }
