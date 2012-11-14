@@ -133,6 +133,9 @@
     </ApplicationDefinition>
     <Compile Include="DrumKit.cs" />
     <Compile Include="DrumPattern.cs" />
+    <Compile Include="DrumPatternSampleProvider.cs" />
+    <Compile Include="MusicSampleProvider.cs" />
+    <Compile Include="PatternSequencer.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="SampleSource.cs" />
     <Compile Include="UserControl1.xaml.cs">

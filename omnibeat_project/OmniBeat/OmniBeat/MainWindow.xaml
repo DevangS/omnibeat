@@ -5,83 +5,125 @@
         xmlns:space="clr-namespace:InteractiveSpace.SDK.GUI;assembly=InteractiveSpace.SDK"
         Title="MainWindow" Height="1120" Width="1678" Closing="Window_Closing">
     <Grid Name="mainGrid">
-        <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="Black" Loaded="vizLayer_Loaded" Margin="-13,-1,13,1" />
-        <Button Name="playButton" Content="Play" Height="73" HorizontalAlignment="Left" Margin="155,94,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="playButton_NewContact" FontSize="40" Background="White" />
-        <Button Name="stopButton" Content="Stop" Height="73" HorizontalAlignment="Left" Margin="458,94,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="stopButton_NewContact" FontSize="40" Background="White" />
-        <TextBlock Text="Tempo:" FontSize="45" Foreground="White" VerticalAlignment="Top" Margin="710,94,0,0" Height="73"></TextBlock>
-        <Slider Name="tempoSlider" Margin="904,117,192,866" Minimum="60" Maximum="180"></Slider>
+        <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="Black" Loaded="vizLayer_Loaded" Margin="0,-1,0,1" />
+        <Button Name="playButton" Content="Play" Height="73" HorizontalAlignment="Left" Margin="143,-1,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="playButton_NewContact" FontSize="40" Background="White" />
+        <Button Name="stopButton" Content="Stop" Height="73" HorizontalAlignment="Left" Margin="446,-1,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="stopButton_NewContact" FontSize="40" Background="White" />
+        <TextBlock Text="Tempo:" FontSize="45" Foreground="White" VerticalAlignment="Top" Margin="698,-1,12,0" Height="73"></TextBlock>
+        <Slider Name="tempoSlider" Margin="892,22,204,961" Minimum="60" Maximum="180"></Slider>
 
-        <TextBlock Text="Kick" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="12,296,1307,712"></TextBlock>
-        <Button Name="kickButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="349,296,1229,712"></Button>
-        <Button Name="kickButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="428,296,1150,712"></Button>
-        <Button Name="kickButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="509,296,1072,712"></Button>
-        <Button Name="kickButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="588,296,994,712"></Button>
-        <Button Name="kickButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="667,296,917,712"></Button>
-        <Button Name="kickButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="746,296,839,712"></Button>
-        <Button Name="kickButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="825,296,761,712"></Button>
-        <Button Name="kickButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="904,296,683,712"></Button>
-        <Button Name="kickButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="980,296,605,712"></Button>
-        <Button Name="kickButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1059,296,527,712"></Button>
-        <Button Name="kickButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1138,296,449,712"></Button>
-        <Button Name="kickButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1214,296,369,712" ></Button>
-        <Button Name="kickButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1294,296,289,712"></Button>
-        <Button Name="kickButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1373,296,210,712"></Button>
-        <Button Name="kickButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1454,296,129,712"></Button>
-        <Button Name="kickButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1533,296,50,712"></Button>
+        <TextBlock Text="Kick" FontSize="45" Foreground="White" VerticalAlignment="Top" Height="70" HorizontalAlignment="Left" Margin="1307,131,0,0"></TextBlock>
+        <Button Name="kickButton1" Tag="0" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="12,106,0,0" VerticalAlignment="Top" />
+        <Button Name="kickButton2" Tag="1" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="172,106,0,0" VerticalAlignment="Top" />
+        <Button Name="kickButton3" Tag="2" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="332,106,0,0" VerticalAlignment="Top" />
+        <Button Name="kickButton4" Tag="3" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="492,106,0,0" VerticalAlignment="Top" />
+        <Button Name="kickButton5" Tag="4" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="652,106,0,0" VerticalAlignment="Top" />
+        <Button Name="kickButton6" Tag="5" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="812,106,0,0" VerticalAlignment="Top"/>
+        <Button Name="kickButton7" Tag="6" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="972,106,0,0" VerticalAlignment="Top"/>
+        <Button Name="kickButton8" Tag="7" Height="140" Width="140" mt:MultitouchScreen.NewContact="kickButton_NewContact" HorizontalAlignment="Left" Margin="1132,106,0,0" VerticalAlignment="Top"/>
 
-        <TextBlock Text="Snare" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="12,459,1307,549"></TextBlock>
-        <Button Name="snareButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="349,459,1229,549"></Button>
-        <Button Name="snareButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="428,459,1150,549"></Button>
-        <Button Name="snareButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="509,459,1072,549"></Button>
-        <Button Name="snareButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="588,459,994,549"></Button>
-        <Button Name="snareButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="667,459,917,549"></Button>
-        <Button Name="snareButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="746,459,839,549"></Button>
-        <Button Name="snareButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="825,459,761,549"></Button>
-        <Button Name="snareButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="904,459,683,549"></Button>
-        <Button Name="snareButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="980,459,605,549"></Button>
-        <Button Name="snareButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1059,459,527,549"></Button>
-        <Button Name="snareButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1138,459,449,549"></Button>
-        <Button Name="snareButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1214,459,369,549" ></Button>
-        <Button Name="snareButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1294,459,289,549"></Button>
-        <Button Name="snareButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1373,459,210,549"></Button>
-        <Button Name="snareButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1454,459,129,549"></Button>
-        <Button Name="snareButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1533,459,50,549"></Button>
+        <TextBlock Text="Snare" FontSize="45" Foreground="White" VerticalAlignment="Top" Height="70" HorizontalAlignment="Left" Margin="1307,346,0,0"></TextBlock>
+        <Button Name="snareButton1" Tag="0" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="12,306,0,0" VerticalAlignment="Top" />
+        <Button Name="snareButton2" Tag="1" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="172,306,0,0" VerticalAlignment="Top" />
+        <Button Name="snareButton3" Tag="2" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="332,306,0,0" VerticalAlignment="Top" />
+        <Button Name="snareButton4" Tag="3" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="492,306,0,0" VerticalAlignment="Top" />
+        <Button Name="snareButton5" Tag="4" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="652,306,0,0" VerticalAlignment="Top" />
+        <Button Name="snareButton6" Tag="5" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="812,306,0,0" VerticalAlignment="Top"/>
+        <Button Name="snareButton7" Tag="6" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="972,306,0,0" VerticalAlignment="Top"/>
+        <Button Name="snareButton8" Tag="7" Height="140" Width="140" mt:MultitouchScreen.NewContact="snareButton_NewContact" HorizontalAlignment="Left" Margin="1132,306,0,0" VerticalAlignment="Top"/>
 
-        <TextBlock Text="Closed Hats" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="12,612,1307,396"></TextBlock>
-        <Button Name="closedHatsButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="349,612,1229,396"></Button>
-        <Button Name="closedHatsButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="428,612,1150,396"></Button>
-        <Button Name="closedHatsButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="509,612,1072,396"></Button>
-        <Button Name="closedHatsButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="588,612,994,396"></Button>
-        <Button Name="closedHatsButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="667,612,917,396"></Button>
-        <Button Name="closedHatsButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="746,612,839,396"></Button>
-        <Button Name="closedHatsButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="825,612,761,396"></Button>
-        <Button Name="closedHatsButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="904,612,683,396"></Button>
-        <Button Name="closedHatsButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="980,612,605,396"></Button>
-        <Button Name="closedHatsButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1059,612,527,396"></Button>
-        <Button Name="closedHatsButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1138,612,449,396"></Button>
-        <Button Name="closedHatsButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1214,612,369,396" ></Button>
-        <Button Name="closedHatsButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1294,612,289,396"></Button>
-        <Button Name="closedHatsButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1373,612,210,396"></Button>
-        <Button Name="closedHatsButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1454,612,129,396"></Button>
-        <Button Name="closedHatsButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1533,612,50,396"></Button>
+        <TextBlock Text="Open Hat" FontSize="45" Foreground="White" VerticalAlignment="Top" Height="70" HorizontalAlignment="Left" Margin="1307,541,0,0"></TextBlock>
+        <Button Name="openHatsButton1" Tag="0" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="12,506,0,0" VerticalAlignment="Top" />
+        <Button Name="openHatsButton2" Tag="1" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="172,506,0,0" VerticalAlignment="Top" />
+        <Button Name="openHatsButton3" Tag="2" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="332,506,0,0" VerticalAlignment="Top" />
+        <Button Name="openHatsButton4" Tag="3" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="492,506,0,0" VerticalAlignment="Top" />
+        <Button Name="openHatsButton5" Tag="4" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="652,506,0,0" VerticalAlignment="Top" />
+        <Button Name="openHatsButton6" Tag="5" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="812,506,0,0" VerticalAlignment="Top"/>
+        <Button Name="openHatsButton7" Tag="6" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="972,506,0,0" VerticalAlignment="Top"/>
+        <Button Name="openHatsButton8" Tag="7" Height="140" Width="140" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" HorizontalAlignment="Left" Margin="1132,506,0,0" VerticalAlignment="Top"/>
 
-        <TextBlock Text="Open Hats" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="12,772,1307,236"></TextBlock>
-        <Button Name="openHatsButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="349,772,1229,236"></Button>
-        <Button Name="openHatsButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="428,772,1150,236"></Button>
-        <Button Name="openHatsButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="509,772,1072,236"></Button>
-        <Button Name="openHatsButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="588,772,994,236"></Button>
-        <Button Name="openHatsButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="667,772,917,236"></Button>
-        <Button Name="openHatsButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="746,772,839,236"></Button>
-        <Button Name="openHatsButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="825,772,761,236"></Button>
-        <Button Name="openHatsButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="904,772,683,236"></Button>
-        <Button Name="openHatsButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="980,772,605,236"></Button>
-        <Button Name="openHatsButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1059,772,527,236"></Button>
-        <Button Name="openHatsButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1138,772,449,236"></Button>
-        <Button Name="openHatsButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1214,772,369,236" ></Button>
-        <Button Name="openHatsButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1294,772,289,236"></Button>
-        <Button Name="openHatsButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1373,772,210,236"></Button>
-        <Button Name="openHatsButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1454,772,129,236"></Button>
-        <Button Name="openHatsButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1533,772,50,236"></Button>
+        <TextBlock Text="Closed Hat" FontSize="45" Foreground="White" VerticalAlignment="Top" Height="70" HorizontalAlignment="Left" Margin="1307,736,0,0"></TextBlock>
+        <Button Name="closedHatsButton1" Tag="0" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="12,706,0,0" VerticalAlignment="Top" />
+        <Button Name="closedHatsButton2" Tag="1" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="172,706,0,0" VerticalAlignment="Top" />
+        <Button Name="closedHatsButton3" Tag="2" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="332,706,0,0" VerticalAlignment="Top" />
+        <Button Name="closedHatsButton4" Tag="3" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="492,706,0,0" VerticalAlignment="Top" />
+        <Button Name="closedHatsButton5" Tag="4" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="652,706,0,0" VerticalAlignment="Top" />
+        <Button Name="closedHatsButton6" Tag="5" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="812,706,0,0" VerticalAlignment="Top"/>
+        <Button Name="closedHatsButton7" Tag="6" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="972,706,0,0" VerticalAlignment="Top"/>
+        <Button Name="closedHatsButton8" Tag="7" Height="140" Width="140" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" HorizontalAlignment="Left" Margin="1132,706,0,0" VerticalAlignment="Top"/>
+
+        <!--"<Button Name="kickButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="340,201,1243,807"></Button>
+        <Button Name="kickButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="419,201,1164,807"></Button>
+        <Button Name="kickButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="498,201,1085,807"></Button>
+        <Button Name="kickButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="577,201,1006,807"></Button>
+        <Button Name="kickButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="655,201,928,807"></Button>
+        <Button Name="kickButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="734,201,849,807"></Button>
+        <Button Name="kickButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="813,201,770,807"></Button>
+        <Button Name="kickButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="892,201,691,807"></Button>
+        <Button Name="kickButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="968,201,615,807"></Button>
+        <Button Name="kickButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1047,201,536,807"></Button>
+        <Button Name="kickButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1126,201,457,807"></Button>
+        <Button Name="kickButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1202,201,381,807" ></Button>
+        <Button Name="kickButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1282,201,301,807"></Button>
+        <Button Name="kickButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1361,201,222,807"></Button>
+        <Button Name="kickButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1442,201,141,807"></Button>
+        <Button Name="kickButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="kickButton_NewContact" Margin="1521,201,62,807"></Button> -->
+<!--
+        <TextBlock Text="Snare" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="0,364,1319,644"></TextBlock>
+        <Button Name="snareButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="340,364,1243,644"></Button>
+        <Button Name="snareButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="419,364,1164,644"></Button>
+        <Button Name="snareButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="498,364,1085,644"></Button>
+        <Button Name="snareButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="577,364,1006,644"></Button>
+        <Button Name="snareButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="655,364,928,644"></Button>
+        <Button Name="snareButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="734,364,849,644"></Button>
+        <Button Name="snareButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="813,364,770,644"></Button>
+        <Button Name="snareButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="892,364,691,644"></Button>
+        <Button Name="snareButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="968,364,615,644"></Button>
+        <Button Name="snareButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1047,364,536,644"></Button>
+        <Button Name="snareButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1126,364,457,644"></Button>
+        <Button Name="snareButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1202,364,381,644" ></Button>
+        <Button Name="snareButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1282,364,301,644"></Button>
+        <Button Name="snareButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1361,364,222,644"></Button>
+        <Button Name="snareButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1442,364,141,644"></Button>
+        <Button Name="snareButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="snareButton_NewContact" Margin="1521,364,62,644"></Button>
+
+        <TextBlock Text="Closed Hats" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="0,517,1319,491"></TextBlock>
+        <Button Name="closedHatsButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="340,517,1243,491"></Button>
+        <Button Name="closedHatsButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="419,517,1164,491"></Button>
+        <Button Name="closedHatsButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="498,517,1085,491"></Button>
+        <Button Name="closedHatsButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="577,517,1006,491"></Button>
+        <Button Name="closedHatsButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="655,517,928,491"></Button>
+        <Button Name="closedHatsButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="734,517,849,491"></Button>
+        <Button Name="closedHatsButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="813,517,770,491"></Button>
+        <Button Name="closedHatsButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="892,517,691,491"></Button>
+        <Button Name="closedHatsButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="968,517,615,491"></Button>
+        <Button Name="closedHatsButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1047,517,536,491"></Button>
+        <Button Name="closedHatsButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1126,517,457,491"></Button>
+        <Button Name="closedHatsButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1202,517,381,491" ></Button>
+        <Button Name="closedHatsButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1282,517,301,491"></Button>
+        <Button Name="closedHatsButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1361,517,222,491"></Button>
+        <Button Name="closedHatsButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1442,517,141,491"></Button>
+        <Button Name="closedHatsButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="closedHatsButton_NewContact" Margin="1521,517,62,491"></Button>
+
+        <TextBlock Text="Open Hats" FontSize="45" Foreground="White" VerticalAlignment="Center" Height="73" Margin="0,677,1319,331"></TextBlock>
+        <Button Name="openHatsButton1" Tag="0" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="340,677,1243,331"></Button>
+        <Button Name="openHatsButton2" Tag="1" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="419,677,1164,331"></Button>
+        <Button Name="openHatsButton3" Tag="2" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="498,677,1085,331"></Button>
+        <Button Name="openHatsButton4" Tag="3" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="577,677,1006,331"></Button>
+        <Button Name="openHatsButton5" Tag="4" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="655,677,928,331"></Button>
+        <Button Name="openHatsButton6" Tag="5" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="734,677,849,331"></Button>
+        <Button Name="openHatsButton7" Tag="6" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="813,677,770,331"></Button>
+        <Button Name="openHatsButton8" Tag="7" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="892,677,691,331"></Button>
+        <Button Name="openHatsButton9" Tag="8" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="968,677,615,331"></Button>
+        <Button Name="openHatsButton10" Tag="9" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1047,677,536,331"></Button>
+        <Button Name="openHatsButton11" Tag="10" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1126,677,457,331"></Button>
+        <Button Name="openHatsButton12" Tag="11" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1202,677,381,331" ></Button>
+        <Button Name="openHatsButton13" Tag="12" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1282,677,301,331"></Button>
+        <Button Name="openHatsButton14" Tag="13" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1361,677,222,331"></Button>
+        <Button Name="openHatsButton15" Tag="14" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1442,677,141,331"></Button>
+        <Button Name="openHatsButton16" Tag="15" Height="73" Width="73" mt:MultitouchScreen.NewContact="openHatsButton_NewContact" Margin="1521,677,62,331"></Button>-->
+
+
+        
     </Grid>
 </mt:Window>
 <!-- Content is Dynamically displayed once the program runs, but you cannot see it in the display in the GUI editor. Try using a hard coded value -->
