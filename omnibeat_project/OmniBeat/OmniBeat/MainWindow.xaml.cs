@@ -110,11 +110,13 @@ namespace OmniBeat
             kick[index] = !kick[index];
             if (kick[index])
             {
+                pattern[0, index] = 127;
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Kick " + index);
             }
             else
             {
+                pattern[0, index] = 0;
                 b.Background = Brushes.White;
             }
         }
@@ -125,13 +127,16 @@ namespace OmniBeat
             Console.WriteLine(b.Tag.ToString());
             int index = int.Parse(b.Tag.ToString());
             snare[index] = !snare[index];
+
             if (snare[index])
             {
+                pattern[1, index] = 127;
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Snare " + index);
             }
             else
             {
+                pattern[1, index] = 0;
                 b.Background = Brushes.White;
             }
         }
@@ -143,11 +148,13 @@ namespace OmniBeat
             closedHats[index] = !closedHats[index];
             if (closedHats[index])
             {
+                pattern[2, index] = 127;
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Closed Hats " + index);
             }
             else
             {
+                pattern[2, index] = 0;
                 b.Background = Brushes.White;
             }
         }
@@ -159,11 +166,13 @@ namespace OmniBeat
             openHats[index] = !openHats[index];
             if (openHats[index])
             {
+                pattern[3, index] = 0;
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Open Hats " + index);
             }
             else
             {
+                pattern[3, index] = 0;
                 b.Background = Brushes.White;
             }
         }
