@@ -84,7 +84,21 @@ namespace OmniBeat
                 Console.WriteLine("Playing");
                 Play();
             }
+            else b.Background = Brushes.White;
         }
+        /*
+        private void playButton_ContactRemoved(object sender, ContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            Console.Out.WriteLine("button Released:" + b.Name);
+            if (b.DataContext.Equals("#"))
+            {
+                b.Background = Brushes.Black;
+            }
+            else b.Background = Brushes.White;
+
+        }
+         * */
 
         private void stopButton_NewContact(object sender, NewContactEventArgs e)
         {
@@ -96,10 +110,7 @@ namespace OmniBeat
                 Console.WriteLine("Stop");
                 Stop();
             }
-            else
-            {
-                b.Background = Brushes.White;
-            }
+            else b.Background = Brushes.White;
         }
 
         private void kickButton_NewContact(object sender, NewContactEventArgs e)
