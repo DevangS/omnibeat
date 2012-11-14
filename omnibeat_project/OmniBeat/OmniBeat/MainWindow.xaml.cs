@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Multitouch.Framework.WPF.Input;
 using InteractiveSpace.SDK;
 using InteractiveSpace.SDK.DLL;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace OmniBeat
 {
@@ -23,6 +25,11 @@ namespace OmniBeat
     public partial class MainWindow : Multitouch.Framework.WPF.Controls.Window
     {
         InteractiveSpaceProvider spaceProvider;
+        private IWavePlayer waveOut;
+        private DrumPattern pattern;
+        private DrumPatternSampleProvider patternSequencer;
+        private int tempo;
+        DrumKit kit = new DrumKit();
         Boolean play = false;
         Boolean stop = false;
         private Boolean[] kick = new Boolean[16];
@@ -67,6 +74,7 @@ namespace OmniBeat
             {
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Playing");
+                Play();
             }
         }
 
@@ -78,6 +86,7 @@ namespace OmniBeat
             {
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Stop");
+                Stop();
             }
             else
             {
@@ -159,5 +168,63 @@ namespace OmniBeat
 
         }
 
+        private void Play()
+        {
+            if (waveOut != null)
+            {
+                Stop();
+            }
+            waveOut = new WaveOut();
+            this.patternSequencer = new DrumPatternSampleProvider(pattern);
+            this.patternSequencer.Tempo = tempo;
+            IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
+            waveOut.Init(wp);
+            waveOut.Play();
+        }
+
+        private void Stop()
+        {
+            if (waveOut != null)
+            {
+                this.patternSequencer = null;
+                waveOut.Dispose();
+                waveOut = null;
+            }
+        }
+
+        public void Dispose()
+        {
+            Stop();
+        }
+
+        public int Tempo
+        {
+            get
+            {
+                return tempo;
+            }
+            set
+            {
+                if (tempo != value)
+                {
+                    this.tempo = value;
+                    if (this.patternSequencer != null)
+                    {
+                        this.patternSequencer.Tempo = value;
+                    }
+                    RaisePropertyChanged("Tempo");
+                }
+            }
+        }
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

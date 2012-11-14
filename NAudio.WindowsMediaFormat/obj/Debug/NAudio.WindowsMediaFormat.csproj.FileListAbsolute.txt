@@ -16,3 +16,12 @@ C:\Users\cgtheresa\workspace\omnipiano\NAudio.WindowsMediaFormat\bin\Debug\NAudi
 C:\Users\cgtheresa\workspace\omnipiano\NAudio.WindowsMediaFormat\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\cgtheresa\workspace\omnipiano\NAudio.WindowsMediaFormat\obj\Debug\NAudio.WindowsMediaFormat.dll
 C:\Users\cgtheresa\workspace\omnipiano\NAudio.WindowsMediaFormat\obj\Debug\NAudio.WindowsMediaFormat.pdb
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.WindowsMediaFormat.dll.config
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.WindowsMediaFormat.dll
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.WindowsMediaFormat.pdb
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.dll
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.pdb
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\bin\Debug\NAudio.xml
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\obj\Debug\NAudio.WindowsMediaFormat.csprojResolveAssemblyReference.cache
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\obj\Debug\NAudio.WindowsMediaFormat.dll
+C:\Users\Devang\workspace\omnibeat\NAudio.WindowsMediaFormat\obj\Debug\NAudio.WindowsMediaFormat.pdb

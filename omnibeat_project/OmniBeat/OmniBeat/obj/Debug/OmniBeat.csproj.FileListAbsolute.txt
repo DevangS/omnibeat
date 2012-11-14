@@ -33,3 +33,5 @@ C:\Users\dbarajas\Documents\GitHub\omnibeat\omnibeat_project\OmniBeat\OmniBeat\o
 C:\Users\dbarajas\Documents\GitHub\omnibeat\omnibeat_project\OmniBeat\OmniBeat\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\dbarajas\Documents\GitHub\omnibeat\omnibeat_project\OmniBeat\OmniBeat\obj\Debug\OmniBeat.exe
 C:\Users\dbarajas\Documents\GitHub\omnibeat\omnibeat_project\OmniBeat\OmniBeat\obj\Debug\OmniBeat.pdb
+C:\Users\Devang\workspace\omnibeat\omnibeat_project\OmniBeat\OmniBeat\obj\Debug\OmniBeat.exe
+C:\Users\Devang\workspace\omnibeat\omnibeat_project\OmniBeat\OmniBeat\obj\Debug\OmniBeat.pdb

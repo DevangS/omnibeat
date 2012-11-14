@@ -109,6 +109,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Multitouch.Framework.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>lib\NAudio\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -128,7 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DrumKit.cs" />
+    <Compile Include="DrumPattern.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="SampleSource.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>

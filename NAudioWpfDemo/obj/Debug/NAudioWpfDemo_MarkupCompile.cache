@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\cgtheresa\workspace\omnipiano\NAudioWpfDemo\obj\Debug\
+C:\Users\Devang\workspace\omnibeat\NAudioWpfDemo\obj\Debug\
 NAudioWpfDemo
 none
 false
 DEBUG;TRACE
-C:\Users\cgtheresa\workspace\omnipiano\NAudioWpfDemo\App.xaml
+C:\Users\Devang\workspace\omnibeat\NAudioWpfDemo\App.xaml
 8-1106716611
 524792757
 331136865707
-18-389886326
+18296145325
 AudioPlaybackDemo\AudioPlaybackDemoView.xaml;DrumMachineDemo\DrumMachineDemoView.xaml;DrumMachineDemo\DrumPatternEditor.xaml;PolygonWaveFormControl.xaml;PolylineWaveFormControl.xaml;SpectrumAnalyser.xaml;WaveFormControl.xaml;MainWindow.xaml;
 
 False

@@ -31,3 +31,19 @@ C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\ResGen.read.1
 C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\ResGen.write.1.tlog
 C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MIDI File Converter.exe
 C:\Users\cgtheresa\workspace\omnipiano\MidiFileConverter\obj\Debug\MIDI File Converter.pdb
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\midi_file_converter.html
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\NamingRules.xml
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\MIDI File Converter.exe.config
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\MIDI File Converter.exe
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\MIDI File Converter.pdb
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\NAudio.dll
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\NAudio.pdb
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\bin\Debug\NAudio.xml
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MidiFileConverter.csprojResolveAssemblyReference.cache
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\NAudio.Utils.AboutForm.resources
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.AdvancedOptionsForm.resources
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.MainForm.resources
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MarkHeath.MidiUtils.Properties.Resources.resources
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MidiFileConverter.csproj.GenerateResource.Cache
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MIDI File Converter.exe
+C:\Users\Devang\workspace\omnibeat\MidiFileConverter\obj\Debug\MIDI File Converter.pdb
