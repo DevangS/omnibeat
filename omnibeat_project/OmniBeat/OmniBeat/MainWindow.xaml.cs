@@ -88,7 +88,8 @@ namespace OmniBeat
         private void kickButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            int index = (int)b.Tag;
+            int index = int.Parse(b.Tag.ToString());
+            Console.WriteLine(b.Tag.ToString());
             kick[index] = !kick[index];
             if (kick[index])
             {
@@ -104,7 +105,8 @@ namespace OmniBeat
         private void snareButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            int index = (int)b.Tag;
+            Console.WriteLine(b.Tag.ToString());
+            int index = int.Parse(b.Tag.ToString());
             snare[index] = !snare[index];
             if (snare[index])
             {
@@ -120,7 +122,7 @@ namespace OmniBeat
         private void closedHatsButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            int index = (int)b.Tag;
+            int index = int.Parse(b.Tag.ToString());
             closedHats[index] = !closedHats[index];
             if (closedHats[index])
             {
@@ -136,7 +138,7 @@ namespace OmniBeat
         private void openHatsButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            int index = (int)b.Tag;
+            int index = int.Parse(b.Tag.ToString());
             openHats[index] = !openHats[index];
             if (openHats[index])
             {
@@ -158,6 +160,8 @@ namespace OmniBeat
         {
 
         }
+
+
 
     }
 }
