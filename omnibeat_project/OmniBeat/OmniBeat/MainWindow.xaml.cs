@@ -62,6 +62,12 @@ namespace OmniBeat
             }
             var notes = new string[] { "Kick", "Snare", "Closed Hats", "Open Hats" };
             this.pattern = new DrumPattern(notes, 16);
+            this.pattern[0, 0] = this.pattern[0, 8] = 127;
+            this.pattern[1, 4] = this.pattern[1, 12] = 127;
+            for (int n = 0; n < pattern.Steps; n++)
+            {
+                this.pattern[2, n] = 127;
+            }
             this.tempo = 100;
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
