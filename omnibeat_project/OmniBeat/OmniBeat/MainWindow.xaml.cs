@@ -24,6 +24,7 @@ namespace OmniBeat
     /// </summary>
     public partial class MainWindow : Multitouch.Framework.WPF.Controls.Window
     {
+        private static int MAX_BEATS = 8;
         InteractiveSpaceProvider spaceProvider;
         private IWavePlayer waveOut;
         private DrumPattern pattern;
@@ -32,10 +33,16 @@ namespace OmniBeat
         DrumKit kit = new DrumKit();
         Boolean play = false;
         Boolean stop = false;
-        private Boolean[] kick = new Boolean[16];
-        private Boolean[] snare = new Boolean[16];
-        private Boolean[] closedHats = new Boolean[16];
-        private Boolean[] openHats = new Boolean[16];
+        private static Boolean[] kick = new Boolean[MAX_BEATS];
+        private static Boolean[] snare = new Boolean[MAX_BEATS];
+        private static Boolean[] closedHats = new Boolean[MAX_BEATS];
+        private static Boolean[] openHats = new Boolean[MAX_BEATS];
+
+        private int selectedKit = 0;
+        private Button[] instrumentButtonArr = new Button[4];
+        private Button[] beatButtonArr = new Button[MAX_BEATS];
+
+        private Boolean[][] drumBeats = { kick, snare, closedHats, openHats };
         
         public MainWindow()
         {
@@ -53,7 +60,7 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
 
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < MAX_BEATS; i++)
             {
                 kick[i] = false;
                 snare[i] = false;
@@ -61,13 +68,31 @@ namespace OmniBeat
                 openHats[i] = false;
             }
             var notes = new string[] { "Kick", "Snare", "Closed Hats", "Open Hats" };
-            this.pattern = new DrumPattern(notes, 16);
-            this.pattern[0, 0] = this.pattern[0, 8] = 127;
-            this.pattern[1, 4] = this.pattern[1, 12] = 127;
-            for (int n = 0; n < pattern.Steps; n++)
-            {
-                this.pattern[2, n] = 127;
-            }
+            this.pattern = new DrumPattern(notes, MAX_BEATS);
+            
+            //16 beat stuff
+            //this.pattern[0, 0] = this.pattern[0, 8] = 127;
+            //this.pattern[1, 4] = this.pattern[1, 12] = 127;
+            //for (int n = 0; n < pattern.Steps; n++)
+            //{
+                //this.pattern[2, n] = 127;
+            //}
+
+            instrumentButtonArr[0] = kickSelectButton;
+            instrumentButtonArr[1] = snareSelectButton;
+            instrumentButtonArr[2] = closedHatsSelectButton;
+            instrumentButtonArr[3] = openHatsSelectButton;
+
+            beatButtonArr[0] = beatButton1;
+            beatButtonArr[1] = beatButton2;
+            beatButtonArr[2] = beatButton3;
+            beatButtonArr[3] = beatButton4;
+            beatButtonArr[4] = beatButton5;
+            beatButtonArr[5] = beatButton6;
+            beatButtonArr[6] = beatButton7;
+            beatButtonArr[7] = beatButton8;
+
+
             this.tempo = 100;
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
@@ -83,8 +108,14 @@ namespace OmniBeat
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Playing");
                 Play();
+                stopButton.Background = Brushes.White;
+                stop = false;
             }
-            else b.Background = Brushes.White;
+            else
+            {
+                b.Background = Brushes.White;
+                Stop();
+            }
         }
         /*
         private void playButton_ContactRemoved(object sender, ContactEventArgs e)
@@ -109,11 +140,54 @@ namespace OmniBeat
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Stop");
                 Stop();
+                playButton.Background = Brushes.White;
+                play = false;
             }
             else b.Background = Brushes.White;
         }
 
-        private void kickButton_NewContact(object sender, NewContactEventArgs e)
+        private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            
+            //change prev selected back to whtie 
+            instrumentButtonArr[selectedKit].Background = Brushes.White;
+            selectedKit = int.Parse(b.Tag.ToString());
+            b.Background = Brushes.OrangeRed;
+            Console.WriteLine(b.Name);
+
+            //reset beat buttons
+            Boolean[] buttonStates = drumBeats[selectedKit];
+            for (int i = 0; i < buttonStates.Length; i++)
+            {
+                if (buttonStates[i])
+                    beatButtonArr[i].Background = Brushes.OrangeRed;
+                else
+                    beatButtonArr[i].Background = Brushes.White;
+            }
+        }
+
+        private void beatButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            int index = int.Parse(b.Tag.ToString());
+            Console.WriteLine(b.Tag.ToString());
+            Boolean[] currInstrument = drumBeats[selectedKit];
+            currInstrument[index] = !currInstrument[index];
+            if (currInstrument[index])
+            {
+                pattern[selectedKit, index] = 127;
+                b.Background = Brushes.OrangeRed;
+                Console.WriteLine("Kick " + index);
+            }
+            else
+            {
+                pattern[selectedKit, index] = 0;
+                b.Background = Brushes.White;
+            }
+        }
+
+        /*private void kickButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
             int index = int.Parse(b.Tag.ToString());
@@ -186,7 +260,7 @@ namespace OmniBeat
                 pattern[3, index] = 0;
                 b.Background = Brushes.White;
             }
-        }
+        }*/
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
