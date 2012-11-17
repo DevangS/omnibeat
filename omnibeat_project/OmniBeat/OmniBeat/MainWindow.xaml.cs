@@ -42,6 +42,7 @@ namespace OmniBeat
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
         //random changes
+        //random change
 
         private Boolean[][] drumBeats = { kick, snare, closedHats, openHats };
         
@@ -179,7 +180,7 @@ namespace OmniBeat
             {
                 pattern[selectedKit, index] = 127;
                 b.Background = Brushes.OrangeRed;
-                Console.WriteLine("Kick " + index);
+                Console.WriteLine("button " + index);
             }
             else
             {
