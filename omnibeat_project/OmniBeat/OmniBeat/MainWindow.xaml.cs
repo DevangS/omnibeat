@@ -41,6 +41,7 @@ namespace OmniBeat
         private int selectedKit = 0;
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
+        //random changes
 
         private Boolean[][] drumBeats = { kick, snare, closedHats, openHats };
         
