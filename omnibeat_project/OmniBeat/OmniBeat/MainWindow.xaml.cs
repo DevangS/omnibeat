@@ -169,6 +169,15 @@ namespace OmniBeat
             }
         }
 
+        private void tempoSlider_NewContact(object sender, NewContactEventArgs e)
+        {
+            Slider s = (Slider)sender;
+            
+            Point p = e.GetPosition(s);
+            Console.WriteLine("slider loc: " + s.Value);
+            Console.WriteLine("Pressed at: " + p);
+        }
+
         private void beatButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;

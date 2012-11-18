@@ -3,13 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
         xmlns:space="clr-namespace:InteractiveSpace.SDK.GUI;assembly=InteractiveSpace.SDK"
+        xmlns:omni="clr-namespace:OmniBeat"
         Title="MainWindow" Height="1120" Width="1678" Closing="Window_Closing">
     <Grid Name="mainGrid">
         <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="Black" Loaded="vizLayer_Loaded" Margin="0,-1,0,1" />
         <Button Name="playButton" Content="Play" Height="73" HorizontalAlignment="Left" Margin="143,-1,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="playButton_NewContact" FontSize="40" Background="White" />
         <Button Name="stopButton" Content="Stop" Height="73" HorizontalAlignment="Left" Margin="446,-1,0,0" VerticalAlignment="Top" Width="194" mt:MultitouchScreen.NewContact="stopButton_NewContact" FontSize="40" Background="White" />
         <TextBlock Text="Tempo:" FontSize="45" Foreground="White" VerticalAlignment="Top" Margin="698,-1,12,0" Height="73"></TextBlock>
-        <Slider Name="tempoSlider" Margin="892,22,204,961" Minimum="60" Maximum="180"></Slider>
+        <!-- <Slider Name="tempoSlider" Margin="892,22,204,1030" Minimum="60" mt:MultitouchScreen.NewContact="tempoSlider_NewContact" Maximum="180"></Slider> -->
+        <omni:TouchSlider x:Name="TempoSlider" Margin="892,22,204,1030" />
         
         <Button Name="kickSelectButton" Tag="0" Content="Kick" FontSize="45" Height="70" Width="130" mt:MultitouchScreen.NewContact="instrumentSelectButton_NewContact" Margin="332,266,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Name="snareSelectButton" Tag="1" Content="Snare" FontSize="45" Height="70" Width="130" mt:MultitouchScreen.NewContact="instrumentSelectButton_NewContact" Margin="492,266,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
