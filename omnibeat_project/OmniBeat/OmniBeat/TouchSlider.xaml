@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="OmniBeat.UserControl1"
+﻿<UserControl 
+             x:Class="OmniBeat.TouchSlider"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
@@ -6,8 +7,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-    
+             d:DesignHeight="24" d:DesignWidth="403">
+    <Grid Height="50" Width="400">
+        <Slider Name="tempoSlider" Minimum="0" mt:MultitouchScreen.NewContact="tempoSlider_NewContact" mt:MultitouchScreen.ContactRemoved="tempoSlider_ContactRemoved" mt:MultitouchScreen.ContactMoved="tempoSlider_ContactMoved" Maximum="400" Margin="0,0,0,25"></Slider>   
     </Grid>
 </UserControl>
