@@ -110,7 +110,7 @@ namespace OmniBeat
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Playing");
                 Play();
-                stopButton.Background = Brushes.White;
+                //stopButton.Background = Brushes.White;
                 stop = false;
             }
             else
