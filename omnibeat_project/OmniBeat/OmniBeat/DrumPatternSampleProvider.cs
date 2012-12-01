@@ -8,7 +8,7 @@ using NAudio.Wave.SampleProviders;
 
 namespace OmniBeat
 {
-    class DrumPatternSampleProvider : ISampleProvider
+    public class DrumPatternSampleProvider : ISampleProvider
     {
         private readonly MixingSampleProvider mixer;
         private readonly WaveFormat waveFormat;
