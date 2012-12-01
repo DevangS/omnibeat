@@ -28,8 +28,9 @@ namespace OmniBeat
         InteractiveSpaceProvider spaceProvider;
         private IWavePlayer waveOut;
         private DrumPattern pattern;
-        private DrumPatternSampleProvider patternSequencer;
-        private int tempo;
+        public DrumPatternSampleProvider patternSequencer;
+        public TempoController tempoController;
+        //private int tempo;
         DrumKit kit = new DrumKit();
         Boolean play = false;
         Boolean stop = false;
@@ -71,7 +72,7 @@ namespace OmniBeat
             }
             var notes = new string[] { "Kick", "Snare", "Closed Hats", "Open Hats" };
             this.pattern = new DrumPattern(notes, MAX_BEATS);
-            
+            this.tempoController = tempoCtrl;
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
             //this.pattern[1, 4] = this.pattern[1, 12] = 127;
@@ -95,7 +96,7 @@ namespace OmniBeat
             beatButtonArr[7] = beatButton8;
 
 
-            this.tempo = 100;
+            //this.tempo = 100;
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
             //vizLayer.SpaceProvider = spaceProvider;
@@ -110,7 +111,7 @@ namespace OmniBeat
                 b.Background = Brushes.OrangeRed;
                 Console.WriteLine("Playing");
                 Play();
-                stopButton.Background = Brushes.White;
+                //stopButton.Background = Brushes.White;
                 stop = false;
             }
             else
@@ -119,19 +120,6 @@ namespace OmniBeat
                 Stop();
             }
         }
-        /*
-        private void playButton_ContactRemoved(object sender, ContactEventArgs e)
-        {
-            Button b = (Button)sender;
-            Console.Out.WriteLine("button Released:" + b.Name);
-            if (b.DataContext.Equals("#"))
-            {
-                b.Background = Brushes.Black;
-            }
-            else b.Background = Brushes.White;
-
-        }
-         * */
 
         private void stopButton_NewContact(object sender, NewContactEventArgs e)
         {
@@ -146,6 +134,12 @@ namespace OmniBeat
                 play = false;
             }
             else b.Background = Brushes.White;
+        }
+
+        private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.OrangeRed;
         }
 
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
@@ -169,15 +163,6 @@ namespace OmniBeat
             }
         }
 
-        private void tempoSlider_NewContact(object sender, NewContactEventArgs e)
-        {
-            Slider s = (Slider)sender;
-            
-            Point p = e.GetPosition(s);
-            Console.WriteLine("slider loc: " + s.Value);
-            Console.WriteLine("Pressed at: " + p);
-        }
-
         private void beatButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
@@ -198,81 +183,6 @@ namespace OmniBeat
             }
         }
 
-        /*private void kickButton_NewContact(object sender, NewContactEventArgs e)
-        {
-            Button b = (Button)sender;
-            int index = int.Parse(b.Tag.ToString());
-            Console.WriteLine(b.Tag.ToString());
-            kick[index] = !kick[index];
-            if (kick[index])
-            {
-                pattern[0, index] = 127;
-                b.Background = Brushes.OrangeRed;
-                Console.WriteLine("Kick " + index);
-            }
-            else
-            {
-                pattern[0, index] = 0;
-                b.Background = Brushes.White;
-            }
-        }
-
-        private void snareButton_NewContact(object sender, NewContactEventArgs e)
-        {
-            Button b = (Button)sender;
-            Console.WriteLine(b.Tag.ToString());
-            int index = int.Parse(b.Tag.ToString());
-            snare[index] = !snare[index];
-
-            if (snare[index])
-            {
-                pattern[1, index] = 127;
-                b.Background = Brushes.OrangeRed;
-                Console.WriteLine("Snare " + index);
-            }
-            else
-            {
-                pattern[1, index] = 0;
-                b.Background = Brushes.White;
-            }
-        }
-
-        private void closedHatsButton_NewContact(object sender, NewContactEventArgs e)
-        {
-            Button b = (Button)sender;
-            int index = int.Parse(b.Tag.ToString());
-            closedHats[index] = !closedHats[index];
-            if (closedHats[index])
-            {
-                pattern[2, index] = 127;
-                b.Background = Brushes.OrangeRed;
-                Console.WriteLine("Closed Hats " + index);
-            }
-            else
-            {
-                pattern[2, index] = 0;
-                b.Background = Brushes.White;
-            }
-        }
-
-        private void openHatsButton_NewContact(object sender, NewContactEventArgs e)
-        {
-            Button b = (Button)sender;
-            int index = int.Parse(b.Tag.ToString());
-            openHats[index] = !openHats[index];
-            if (openHats[index])
-            {
-                pattern[3, index] = 127;
-                b.Background = Brushes.OrangeRed;
-                Console.WriteLine("Open Hats " + index);
-            }
-            else
-            {
-                pattern[3, index] = 0;
-                b.Background = Brushes.White;
-            }
-        }*/
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             spaceProvider.Close();
@@ -291,7 +201,8 @@ namespace OmniBeat
             }
             waveOut = new WaveOut();
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
-            this.patternSequencer.Tempo = tempo;
+            //this.patternSequencer.Tempo = tempo;
+            this.tempoController.setPatternSequencer(ref this.patternSequencer);
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();
@@ -312,6 +223,7 @@ namespace OmniBeat
             Stop();
         }
 
+        /*
         public int Tempo
         {
             get
@@ -331,7 +243,7 @@ namespace OmniBeat
                 }
             }
         }
-
+        */
      /*   private void RaisePropertyChanged(string propertyName)
         {
             if (this.PropertyChanged != null)

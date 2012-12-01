@@ -109,7 +109,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Multitouch.Framework.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="NAudio">
+    <Reference Include="NAudio, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\NAudio\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -134,12 +135,15 @@
     <Compile Include="DrumKit.cs" />
     <Compile Include="DrumPattern.cs" />
     <Compile Include="DrumPatternSampleProvider.cs" />
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MusicSampleProvider.cs" />
     <Compile Include="PatternSequencer.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="SampleSource.cs" />
-    <Compile Include="TouchSlider.xaml.cs">
-      <DependentUpon>TouchSlider.xaml</DependentUpon>
+    <Compile Include="TempoController.xaml.cs">
+      <DependentUpon>TempoController.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -156,7 +160,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TouchSlider.xaml">
+    <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TempoController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
