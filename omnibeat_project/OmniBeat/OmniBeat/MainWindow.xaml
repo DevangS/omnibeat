@@ -10,7 +10,8 @@
         <Button Name="playButton" Content="Play" Height="75" Width="270" HorizontalAlignment="Left" Margin="67,52,0,0" VerticalAlignment="Top" mt:MultitouchScreen.NewContact="playButton_NewContact" FontSize="45"/>
         <TextBlock Text="Tempo:" FontSize="45" Foreground="White" VerticalAlignment="Top" Margin="463,52,247,0" Height="73"></TextBlock>
         <omni:TempoController x:Name="tempoCtrl" HorizontalAlignment="Left" Height="75" Width="800" VerticalAlignment="Top" Margin="690,52,166,0" />
-        <omni:Menu x:Name="Menu" Width="281" HorizontalAlignment="Left" VerticalAlignment="Top" Height="350" Margin="61,140,0,0" />
+        <omni:Menu x:Name="Menu" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Margin="52,136,0,0" />
+        <Button Name="soundClipsSelectButton" Content="Select&#x0a;Sound&#x0a; Clips" FontSize="40" Height="170" Width="270" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" Margin="67,402,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Name="kickSelectButton" Tag="0" Content="Kick" FontSize="45" Height="75" Width="270" mt:MultitouchScreen.NewContact="instrumentSelectButton_NewContact" Margin="67,600,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Name="snareSelectButton" Tag="1" Content="Snare" FontSize="45" Height="75" Width="270" mt:MultitouchScreen.NewContact="instrumentSelectButton_NewContact" Margin="67,695,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Name="closedHatsSelectButton" Tag="2" Content="Closed Hats" FontSize="45" Height="75" Width="270" mt:MultitouchScreen.NewContact="instrumentSelectButton_NewContact" Margin="67,790,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>

@@ -136,6 +136,12 @@ namespace OmniBeat
             else b.Background = Brushes.White;
         }
 
+        private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.OrangeRed;
+        }
+
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
