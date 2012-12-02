@@ -1,7 +1,7 @@
-template = '<Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" '
+template = '<Rectangle Opacity="0" Fill="White" HorizontalAlignment="Left" '
 template += 'Margin="%d,%d,0,0" Name="rectangle%d%d" VerticalAlignment="Top" '
 template += 'Width="%d" Height="%d" '
-template += 'mt:MultitouchScreen.NewContact="pitch_NewContact%d%d"/>'
+template += 'mt:MultitouchScreen.NewContact="pitch_NewContact%d%d"/>\n'
 tab='\s\s\s\s'
 
 colMax = 8
@@ -16,9 +16,10 @@ topStart = 0
 left = leftStart
 top = topStart
 
-for col in range(colMax):
-  top = topStart
-  for row in range(rowMax):
-    print template % (left, top, col, row, width, height, col, row)
-    top += height + padH
-  left += width + padW
+with open("PitchRectangles", "w") as f:
+	for col in range(colMax):
+	  top = topStart
+	  for row in range(rowMax):
+		f.write( template % (left, top, col, row, width, height, col, row))
+		top += height + padH
+	  left += width + padW

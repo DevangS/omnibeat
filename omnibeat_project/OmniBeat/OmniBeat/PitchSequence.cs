@@ -47,14 +47,13 @@ namespace OmniBeat
             }
         }
 
-        public void Click(int col, int row, Boolean[,,] state)
+        public void Click(int col, int row, ref Boolean[,,] state)
         {
             for (int r = 0; r < maxRow; r++)
             {
                 if (r != row)
                 {
-                    UnClick(col, r);
-                    state[MainWindow.chosenButton, col, row] = false;
+                    UnClick(col, r, ref state);
 
                 }
                 else
@@ -67,10 +66,11 @@ namespace OmniBeat
 
         }
 
-        public void UnClick(int col, int row)
+        public void UnClick(int col, int row, ref Boolean[,,] state)
         {
             grid[col, row].Fill = new SolidColorBrush(Colors.White);
             grid[col, row].Opacity = 0;
+            state[MainWindow.chosenButton, col, row] = false;
         }
     }
 }
