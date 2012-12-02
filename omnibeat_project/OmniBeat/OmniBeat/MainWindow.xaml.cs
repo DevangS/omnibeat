@@ -30,6 +30,7 @@ namespace OmniBeat
         private DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
+        public PitchController pitchController;
         //private int tempo;
         DrumKit kit = new DrumKit();
         Boolean play = false;
@@ -73,6 +74,7 @@ namespace OmniBeat
             var notes = new string[] { "Kick", "Snare", "Closed Hats", "Open Hats" };
             this.pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
+            this.pitchController = pitchCtrl;
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
             //this.pattern[1, 4] = this.pattern[1, 12] = 127;
@@ -203,6 +205,7 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
+            this.pitchController.setPatternSequencer(ref this.patternSequencer);
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();
