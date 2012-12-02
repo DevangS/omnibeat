@@ -23,31 +23,33 @@ namespace OmniBeat
     /// </summary>
     public partial class Menu : UserControl
     {
-        public bool drumBeats_isSet;
+        public bool isSynced;
         public bool delay_flag;
         public Boolean[][] drumBeats;
+        private TempoController tempoController;
         //public Vector<    
         
 
         public Menu()
         {
             InitializeComponent();
-            drumBeats_isSet = false;
+            isSynced = false;
             delay_flag = false;
         }
 
-        public void referenceDrumBeats(Boolean[][] beats)
+        public void sync(Boolean[][] beats, TempoController tempo)
         {
-            Console.WriteLine("\n***** referencing the drum beats*****\n");
-            drumBeats_isSet = true;
+            Console.WriteLine("\n***** inside sync*****\n");
+            isSynced = true;
             drumBeats = beats;
+            tempoController = tempo;
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
             // Use timers.. 
             Console.WriteLine("Save Button Pressed");
-            if (drumBeats_isSet && !delay_flag)
+            if (isSynced && !delay_flag)
             {
                 delay_flag = true;
                 
@@ -70,5 +72,28 @@ namespace OmniBeat
 
             //TODO: recolour all the beat buttons to be white in the GUI
         }
+
+        private void saveToFile(String filename)
+        {
+            using (StreamWriter file = new StreamWriter(filename))
+            {
+                //write tempo to disk
+                file.WriteLine(tempoController.Tempo.ToString());
+
+                //write drumBeats to disk
+                for (int i = 0; i < drumBeats.Rank; i++)
+                {
+                    StringBuilder line = new StringBuilder();
+                    for (int j = 0; j < drumBeats.GetLength(i); j++)
+                    {
+                        int val = drumBeats[i][j] ? 1 : 0;
+                        line.Append(val).Append(" ");
+                    }
+                    file.WriteLine(line.ToString());
+                }
+            }
+
+        }
+
     }
 }

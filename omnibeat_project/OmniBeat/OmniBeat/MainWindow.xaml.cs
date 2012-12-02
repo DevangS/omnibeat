@@ -48,7 +48,8 @@ namespace OmniBeat
         public MainWindow()
         {
             InitializeComponent();
-            Menu.referenceDrumBeats(drumBeats);
+
+            Menu.sync(drumBeats, tempoController);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
