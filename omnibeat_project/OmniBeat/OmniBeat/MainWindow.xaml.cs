@@ -37,7 +37,7 @@ namespace OmniBeat
 
         private int selectedKit = 0;
         private int chosenButton = 0;
-        private int[] chosenClips = { 0, 1, 2, 3 };
+        private int[] chosenClips = iew int[4];
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
         private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
@@ -61,6 +61,8 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length][];
+            chosenClips = new int[] {0,1,2,3};
+            updateSelectedClips();
 
             //create an boolean array for each sample
             for (int i = 0; i < notes.Length; i++)
