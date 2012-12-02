@@ -45,6 +45,10 @@ namespace OmniBeat
             tempoController = tempo;
         }
 
+        private void openButton_NewContact(object sender, NewContactEventArgs e)
+        {
+        }
+
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
             // Use timers.. 
@@ -73,6 +77,14 @@ namespace OmniBeat
             //TODO: recolour all the beat buttons to be white in the GUI
         }
 
+        private void loadFromFile(String filename)
+        {
+            using (StreamReader file = new StreamReader(filename))
+            {
+                //tempoController.Tempo = toInt32(file.ReadLine());
+
+            }
+        }
         private void saveToFile(String filename)
         {
             using (StreamWriter file = new StreamWriter(filename))
