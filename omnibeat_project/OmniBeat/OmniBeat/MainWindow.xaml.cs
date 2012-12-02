@@ -350,8 +350,8 @@ namespace OmniBeat
             //reset tempo to 1
             tempoController.Tempo = 1;
 
-
-            //TODO: recolour all the beat buttons to be white in the GUI
+            //recolour GUI beat buttons
+            updateBeatButtons();
         }
 
     }
