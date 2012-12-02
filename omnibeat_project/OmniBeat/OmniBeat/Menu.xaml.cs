@@ -52,7 +52,7 @@ namespace OmniBeat
             if (isSynced && !delay_flag)
             {
                 delay_flag = true;
-                
+                saveToFile("save");
             }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
