@@ -38,16 +38,16 @@ namespace OmniBeat
 
         private int selectedKit = 0;
         public static int chosenButton = 0;
-        private int[] chosenClips = {0,1,2,3}; //CHANGE THIS ARRAY TO CHANGE SELECTED CLIPS
-                                               //AND THEN CALL updateSelectedClips() TO 
-                                               //SET IT. 
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
         private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
+        private enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
+                                  Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
+        private int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
         private Boolean[][] drumBeats;
 
@@ -69,7 +69,7 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length*2][];
-            chosenClips = new int[] {0,1,2,3};
+            chosenClips = new int[] {(int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat};
 
 
             //create an boolean array for each sample
@@ -135,6 +135,8 @@ namespace OmniBeat
         //uses chosenClips. Alternately, maybe change it so it takes an array.
         //either way chosenClips has to change since i think Pitch bend needs
         //it too.
+
+        // UPDATE NAMES OF SOUDN CLIP BUTTONS
         private void updateSelectedClips()
         {
             for (int i = 0; i < chosenClips.Length; i++)
@@ -224,12 +226,31 @@ namespace OmniBeat
 
             //reload pitch
             this.pitchController.reloadState();
-   
-            b.Background = Brushes.OrangeRed;
-            Console.WriteLine(b.Name);
-            Console.WriteLine(b.Tag + " " +selectedKit);
+
+            updateSoundClipButtons();
 
             //reset beat buttons
+            updateBeatButtons();
+
+        }
+
+        private void updateSoundClipButtons()
+        {
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                if (i == chosenButton)
+                {
+                    instrumentButtonArr[i].Background = Brushes.OrangeRed;
+                }
+                else
+                {
+                    instrumentButtonArr[i].Background = Brushes.White;
+                }
+            }
+        }
+
+        private void updateBeatButtons()
+        {
             Boolean[] buttonStates = drumBeats[selectedKit];
             for (int i = 0; i < buttonStates.Length; i++)
             {
