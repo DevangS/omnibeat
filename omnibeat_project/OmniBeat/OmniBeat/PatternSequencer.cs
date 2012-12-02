@@ -21,8 +21,8 @@ namespace OmniBeat
             this.drumKit = kit;
             this.drumPattern = drumPattern;
             this.Tempo = 120;
-            this.pitch = new int[MainWindow.noteNum, drumPattern.Steps];
-            for (int i = 0; i < MainWindow.noteNum; i++)
+            this.pitch = new int[BeatMaker.noteNum, drumPattern.Steps];
+            for (int i = 0; i < BeatMaker.noteNum; i++)
             {
                 for (int j = 0; j < drumPattern.Steps; j++)
                 {
@@ -60,7 +60,7 @@ namespace OmniBeat
         {
             if (clipPlayed == true && currentStep == 7)
             {
-                MainWindow.clearClips();
+                BeatMaker.clearClips();
                 clipPlayed = false;
             }
             if (playClip == true && currentStep == 0)

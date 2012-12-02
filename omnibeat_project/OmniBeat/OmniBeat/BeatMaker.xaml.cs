@@ -25,10 +25,11 @@ namespace OmniBeat
     /// </summary>
     public partial class BeatMaker : UserControl
     {
-        private static int MAX_BEATS = 8;
-        InteractiveSpaceProvider spaceProvider;
-        private IWavePlayer waveOut;
-        private static DrumPattern pattern;
+       
+        public static int MAX_BEATS = 8;
+        public InteractiveSpaceProvider spaceProvider;
+        public IWavePlayer waveOut;
+        public static DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
         public PitchController pitchController;
@@ -37,26 +38,32 @@ namespace OmniBeat
         Boolean play = false;
         Boolean stop = false;
 
-        private int selectedKit = 0;
+        public int selectedKit = 0;
         public static int chosenButton = 0;
-        private int[] chosenClips = { 0, 1, 2, 3 }; //CHANGE THIS ARRAY TO CHANGE SELECTED CLIPS
-        //AND THEN CALL updateSelectedClips() TO 
-        //SET IT. 
-        private Button[] instrumentButtonArr = new Button[4];
-        private Button[] beatButtonArr = new Button[MAX_BEATS];
-        private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
+        public Button[] instrumentButtonArr = new Button[4];
+        public Button[] beatButtonArr = new Button[MAX_BEATS];
+        public string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
+        public enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
+                                  Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
+        public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
-        private Boolean[][] drumBeats;
+        public Boolean[][] drumBeats;
+        
+        public void Navigate(UserControl nextPage)
+        {
+            this.Content = nextPage;
+        }
 
         public BeatMaker()
         {
             InitializeComponent();
 
-            Menu.sync(drumBeats, tempoController);
+            
+            Menu.sync(this);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
@@ -70,7 +77,7 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length*2][];
-            chosenClips = new int[] {0,1,2,3};
+            chosenClips = new int[] {(int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat};
 
 
             //create an boolean array for each sample
@@ -129,16 +136,14 @@ namespace OmniBeat
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
             //vizLayer.SpaceProvider = spaceProvider;
-
         }
-
-
-
 
         //call this method when the selected instruments have been changed
         //uses chosenClips. Alternately, maybe change it so it takes an array.
         //either way chosenClips has to change since i think Pitch bend needs
         //it too.
+
+        // UPDATE NAMES OF SOUDN CLIP BUTTONS
         private void updateSelectedClips()
         {
             for (int i = 0; i < chosenClips.Length; i++)
@@ -158,7 +163,7 @@ namespace OmniBeat
             Console.WriteLine("play clip");
             Button b = (Button)sender;
             int x = int.Parse(b.Tag.ToString());
-            pattern[x + 10, 0] = 127;
+            pattern[x+10, 0] = 127;
             PatternSequencer.playClip = true;
         }
 
@@ -221,20 +226,39 @@ namespace OmniBeat
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-
+            
             //change prev selected back to whtie 
             instrumentButtonArr[chosenButton].Background = Brushes.White;
-            chosenButton = int.Parse(b.Name[16].ToString());
+            chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
 
             //reload pitch
             this.pitchController.reloadState();
 
-            b.Background = Brushes.OrangeRed;
-            Console.WriteLine(b.Name);
-            Console.WriteLine(b.Tag + " " + selectedKit);
+            updateSoundClipButtons();
 
             //reset beat buttons
+            updateBeatButtons();
+
+        }
+
+        private void updateSoundClipButtons()
+        {
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                if (i == chosenButton)
+                {
+                    instrumentButtonArr[i].Background = Brushes.OrangeRed;
+                }
+                else
+                {
+                    instrumentButtonArr[i].Background = Brushes.White;
+                }
+            }
+        }
+
+        private void updateBeatButtons()
+        {
             Boolean[] buttonStates = drumBeats[selectedKit];
             for (int i = 0; i < buttonStates.Length; i++)
             {
@@ -304,6 +328,35 @@ namespace OmniBeat
         public void Dispose()
         {
             Stop();
+        }
+
+        public void clearEverything() 
+        {
+            //iterate over each dimensions/first array dereference
+            for (int i = 0; i <= drumBeats.Rank; i++)
+            {
+                //iterate over each element in the array at the ith dimension
+                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                {
+                    //set the jth beat for the ith instrument to false
+                    drumBeats[i][j] = false;
+                }
+            }
+
+            //reset drum pattern
+            for (int i = 0; i < notes.Length; i++)
+            {
+                for (int j = 0; j < MAX_BEATS; j++)
+                {
+                    pattern[i, j] = 0;
+                }
+            }
+
+            //reset tempo to 1
+            tempoController.Tempo = 1;
+
+            //recolour GUI beat buttons
+            updateBeatButtons();
         }
     }
 }

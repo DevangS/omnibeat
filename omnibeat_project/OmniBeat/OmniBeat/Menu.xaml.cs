@@ -27,7 +27,7 @@ namespace OmniBeat
         public bool ioLock;
         public bool saved;
         private String save1Location;
-        private MainWindow window;
+        private BeatMaker BeatMaker;
 
         public Menu()
         {
@@ -37,11 +37,11 @@ namespace OmniBeat
             save1Location = Directory.GetCurrentDirectory() + "/save1";
         }
 
-        public void sync(MainWindow window)
+        public void sync(BeatMaker BeatMaker)
         {
             Console.WriteLine("\n***** inside sync*****\n");
             isSynced = true;
-            this.window = window;
+            this.BeatMaker = BeatMaker;
         }
 
         private void openButton_NewContact(object sender, NewContactEventArgs e)
@@ -71,7 +71,7 @@ namespace OmniBeat
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Clear Button Pressed");
-            window.clearEverything();
+            BeatMaker.clearEverything();
         }
 
         private void loadFromFile(String filename)
@@ -79,28 +79,29 @@ namespace OmniBeat
             string[] lines = System.IO.File.ReadAllLines(filename);
           
             //read tempo
-            window.tempoController.Tempo = Convert.ToInt32(lines[0]);
+            BeatMaker.tempoController.Tempo = Convert.ToInt32(lines[0]);
 
             //read chosenButton
-            MainWindow.chosenButton = Convert.ToInt32(lines[1]);
+            BeatMaker.chosenButton = Convert.ToInt32(lines[1]);
 
             //read chosenClips
-            for (int i = 0; i < window.chosenClips.Length; i++)
+            for (int i = 0; i < BeatMaker.chosenClips.Length; i++)
             {
-                window.chosenClips[i] = Convert.ToInt32(lines[i + 2]);
+                BeatMaker.chosenClips[i] = Convert.ToInt32(lines[i + 2]);
             }
 
             //read drumbeats
-            for (int i = 0; i < window.drumBeats.Rank; i++)
+            for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
+
             {
                 try
                 {
                     //get all beats for this instrument
                     string[] beats = lines[i].Split(' ');
-                    for (int j = 0; j < window.drumBeats.GetLength(i); j++)
+                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(i); j++)
                     {
                         //set the value of each beat in our application based on value in file
-                        window.drumBeats[i][j] = Convert.ToInt32(beats[j]) != 0;
+                        BeatMaker.drumBeats[i][j] = Convert.ToInt32(beats[j]) != 0;
                     }
                 }
                 catch (IndexOutOfRangeException e)
@@ -118,23 +119,23 @@ namespace OmniBeat
                 //update pattern,  pitch.state
  
                 //write tempo to disk
-                file.WriteLine(window.tempoController.Tempo.ToString());
+                file.WriteLine(BeatMaker.tempoController.Tempo.ToString());
 
                 //write chosenButton
-                file.WriteLine(MainWindow.chosenButton.ToString());
+                file.WriteLine(BeatMaker.chosenButton.ToString());
 
                 //write chosenClips to disk
-                foreach (int clip in window.chosenClips)
+                foreach (int clip in BeatMaker.chosenClips)
                     line.Append(clip).Append(" ");
                 file.WriteLine(line.ToString());
 
                 //write drumBeats to disk
-                for (int i = 0; i < window.drumBeats.Rank; i++)
+                for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
                 {
                     line = new StringBuilder();
-                    for (int j = 0; j < window.drumBeats.GetLength(i); j++)
+                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(i); j++)
                     {
-                        int val = window.drumBeats[i][j] ? 1 : 0;
+                        int val = BeatMaker.drumBeats[i][j] ? 1 : 0;
                         line.Append(val).Append(" ");
                     }
                     file.WriteLine(line.ToString());
