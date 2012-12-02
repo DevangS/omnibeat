@@ -62,8 +62,8 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length][];
-            chosenClips = new int[] {0,1,2,3};
-            //updateSelectedClips();
+            chosenClips = new int[] {4,5,6,7};
+
 
             //create an boolean array for each sample
             for (int i = 0; i < notes.Length; i++)
@@ -103,7 +103,7 @@ namespace OmniBeat
             beatButtonArr[6] = beatButton7;
             beatButtonArr[7] = beatButton8;
 
-
+            updateSelectedClips();
             //this.tempo = 100;
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
@@ -118,7 +118,7 @@ namespace OmniBeat
                 int x = chosenClips[i];
                 Button b = instrumentButtonArr[i];
                 b.Tag = x.ToString();
-                b.Name = notes[i];
+                b.Content = notes[i];
             }
         }
 
