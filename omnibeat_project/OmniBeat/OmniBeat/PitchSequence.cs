@@ -47,18 +47,21 @@ namespace OmniBeat
             }
         }
 
-        public void Click(int col, int row)
+        public void Click(int col, int row, Boolean[,,] state)
         {
             for (int r = 0; r < maxRow; r++)
             {
                 if (r != row)
                 {
                     UnClick(col, r);
+                    state[MainWindow.chosenButton, col, row] = false;
+
                 }
                 else
                 {
                     grid[col, row].Fill = new SolidColorBrush(Colors.DarkSalmon);
                     grid[col, row].Opacity = 100;
+                    state[MainWindow.chosenButton, col, row] = true;
                 }
             }
 
