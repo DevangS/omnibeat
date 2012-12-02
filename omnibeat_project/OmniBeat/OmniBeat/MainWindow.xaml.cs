@@ -44,10 +44,11 @@ namespace OmniBeat
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Scratch", "Jerk" };
 
         private Boolean[][] drumBeats;
-        
+
         public MainWindow()
         {
             InitializeComponent();
+            Menu.referenceDrumBeats(drumBeats);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
