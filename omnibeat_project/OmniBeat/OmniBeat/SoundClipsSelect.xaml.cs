@@ -22,7 +22,7 @@ namespace OmniBeat
     /// <summary>
     /// Interaction logic for SoundClipsSelect.xaml
     /// </summary>
-    public partial class SoundClipsSelect : Page
+    public partial class SoundClipsSelect : UserControl
     {
         public SoundClipsSelect()
         {
@@ -36,7 +36,13 @@ namespace OmniBeat
 
         private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
+            Console.WriteLine("Pressed the button" + ((Button)sender).Name.ToString());
+        }
 
+        private void SelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Console.WriteLine("PRESSED SELECT BUTTON");
+            Switcher.Switch(Switcher.mainWindow.beatMaker);
         }
     }
 }
