@@ -107,6 +107,19 @@ namespace OmniBeat
             //vizLayer.SpaceProvider = spaceProvider;
         }
 
+        //call this method when the selected instruments have been changed
+        private void updateSelectedClips()
+        {
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                int x = chosenClips[i];
+                Button b = instrumentButtonArr[i];
+                b.Tag = x.ToString();
+                b.Name = notes[i];
+            }
+        }
+
+
         private void playButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
@@ -225,35 +238,6 @@ namespace OmniBeat
             Stop();
         }
 
-        /*
-        public int Tempo
-        {
-            get
-            {
-                return tempo;
-            }
-            set
-            {
-                if (tempo != value)
-                {
-                    this.tempo = value;
-                    if (this.patternSequencer != null)
-                    {
-                        this.patternSequencer.Tempo = value;
-                    }
-                    //RaisePropertyChanged("Tempo");
-                }
-            }
-        }
-        */
-     /*   private void RaisePropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;*/
+        
     }
 }
