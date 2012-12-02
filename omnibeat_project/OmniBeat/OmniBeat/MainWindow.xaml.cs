@@ -24,10 +24,10 @@ namespace OmniBeat
     /// </summary>
     public partial class MainWindow : Multitouch.Framework.WPF.Controls.Window
     {
-        private static int MAX_BEATS = 8;
-        InteractiveSpaceProvider spaceProvider;
-        private IWavePlayer waveOut;
-        private static DrumPattern pattern;
+        public static int MAX_BEATS = 8;
+        public InteractiveSpaceProvider spaceProvider;
+        public IWavePlayer waveOut;
+        public static DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
         public PitchController pitchController;
@@ -40,7 +40,7 @@ namespace OmniBeat
         public static int chosenButton = 0;
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
-        private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
+        public string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
@@ -49,13 +49,13 @@ namespace OmniBeat
         public static int noteNum = 20;
         private int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
-        private Boolean[][] drumBeats;
+        public Boolean[][] drumBeats;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            Menu.sync(drumBeats, tempoController);
+            Menu.sync(this);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
@@ -323,6 +323,35 @@ namespace OmniBeat
         public void Dispose()
         {
             Stop();
+        }
+
+        public void clearEverything() 
+        {
+            //iterate over each dimensions/first array dereference
+            for (int i = 0; i <= drumBeats.Rank; i++)
+            {
+                //iterate over each element in the array at the ith dimension
+                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                {
+                    //set the jth beat for the ith instrument to false
+                    drumBeats[i][j] = false;
+                }
+            }
+
+            //reset drum pattern
+            for (int i = 0; i < notes.Length; i++)
+            {
+                for (int j = 0; j < MAX_BEATS; j++)
+                {
+                    pattern[i, j] = 0;
+                }
+            }
+
+            //reset tempo to 1
+            tempoController.Tempo = 1;
+
+            //recolour GUI beat buttons
+            updateBeatButtons();
         }
 
     }
