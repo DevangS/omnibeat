@@ -38,18 +38,18 @@ namespace OmniBeat
         Boolean play = false;
         Boolean stop = false;
 
-        private int selectedKit = 0;
+        public int selectedKit = 0;
         public static int chosenButton = 0;
-        private Button[] instrumentButtonArr = new Button[4];
-        private Button[] beatButtonArr = new Button[MAX_BEATS];
+        public Button[] instrumentButtonArr = new Button[4];
+        public Button[] beatButtonArr = new Button[MAX_BEATS];
         public string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
-        private enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
+        public enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
                                   Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
-        private int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
         public Boolean[][] drumBeats;
         
