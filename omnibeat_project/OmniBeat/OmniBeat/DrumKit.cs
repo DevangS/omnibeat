@@ -11,7 +11,7 @@ namespace OmniBeat
     {
         private List<SampleSource> sampleSources;
         private WaveFormat waveFormat;
-
+		//hi
         public DrumKit()
         {
             SampleSource kickSample = SampleSource.CreateFromWaveFile("Samples\\kick-trimmed.wav");
