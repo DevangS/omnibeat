@@ -280,7 +280,7 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
-            this.pitchController.setPatternSequencer(ref this.patternSequencer);
+            this.pitchController.setPatternSequencer(this.patternSequencer);
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();
