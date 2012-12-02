@@ -27,7 +27,7 @@ namespace OmniBeat
         private static int MAX_BEATS = 8;
         InteractiveSpaceProvider spaceProvider;
         private IWavePlayer waveOut;
-        private DrumPattern pattern;
+        private static DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
         //private int tempo;
@@ -37,11 +37,15 @@ namespace OmniBeat
 
         private int selectedKit = 0;
         private int chosenButton = 0;
-        private int[] chosenClips = {0,1,2,3};
+        private int[] chosenClips = {0,1,2,3}; //CHANGE THIS ARRAY TO CHANGE SELECTED CLIPS
+                                               //AND THEN CALL updateSelectedClips() TO 
+                                               //SET IT. 
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
         private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
-                                  "Everybody", "Oh Yeah", "OneMoreTime", "Scratch", "Jerk" };
+                                  "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
+                                  "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
+                                  "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
 
         private Boolean[][] drumBeats;
 
@@ -61,8 +65,8 @@ namespace OmniBeat
 
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
-            drumBeats = new Boolean[notes.Length][];
-            chosenClips = new int[] {4,5,6,7};
+            drumBeats = new Boolean[notes.Length*2][];
+            chosenClips = new int[] {4,8,9,7};
 
 
             //create an boolean array for each sample
@@ -76,10 +80,19 @@ namespace OmniBeat
                 }
                 drumBeats[i] = newArray;
             }
+            for (int i = 8; i < notes.Length; i++)
+            {
+                Boolean[] newArray = new Boolean[MAX_BEATS];
+                //make all values false
+                for (int j = 0; j < MAX_BEATS; j++)
+                {
+                    newArray[j] = false;
+                }
+                drumBeats[i] = newArray;
+            }
 
 
-
-            this.pattern = new DrumPattern(notes, MAX_BEATS);
+            pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
@@ -110,18 +123,50 @@ namespace OmniBeat
             //vizLayer.SpaceProvider = spaceProvider;
         }
 
+
+
+
         //call this method when the selected instruments have been changed
+        //uses chosenClips. Alternately, maybe change it so it takes an array.
+        //either way chosenClips has to change since i think Pitch bend needs
+        //it too.
         private void updateSelectedClips()
         {
             for (int i = 0; i < chosenClips.Length; i++)
             {
+                Console.WriteLine("Changing button# " + i);
                 int x = chosenClips[i];
                 Button b = instrumentButtonArr[i];
                 b.Tag = x.ToString();
-                b.Content = notes[i];
+                Console.WriteLine("from " + b.Content + " to " + notes[x]);
+                b.Content = "" + notes[x];
             }
+            selectedKit = chosenClips[0];
         }
 
+        private void playClipButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Console.WriteLine("play clip");
+            Button b = (Button)sender;
+            int x = int.Parse(b.Tag.ToString());
+            pattern[x+10, 0] = 127;
+            PatternSequencer.playClip = true;
+        }
+
+        public static void clearClips()
+        {
+            Console.WriteLine("clear clip");
+            pattern[10, 0] = 0;
+            pattern[11, 0] = 0;
+            pattern[12, 0] = 0;
+            pattern[13, 0] = 0;
+            pattern[14, 0] = 0;
+            pattern[15, 0] = 0;
+            pattern[16, 0] = 0;
+            pattern[17, 0] = 0;
+            pattern[18, 0] = 0;
+            pattern[19, 0] = 0;
+        }
 
         private void playButton_NewContact(object sender, NewContactEventArgs e)
         {
