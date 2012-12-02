@@ -129,6 +129,7 @@ namespace OmniBeat
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
             //vizLayer.SpaceProvider = spaceProvider;
+
         }
 
 

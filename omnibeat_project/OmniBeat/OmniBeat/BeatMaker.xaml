@@ -39,7 +39,7 @@
         <Button Name="beatButton8" Tag="7" Height="140" Width="140" mt:MultitouchScreen.NewContact="beatButton_NewContact" HorizontalAlignment="Left" Margin="1440,755,0,0" VerticalAlignment="Top" Background="White"/>
         <Button Name="everybodyClip" Tag="5" Content="Errbody" FontSize="45" Height="75" Width="270" mt:MultitouchScreen.NewContact="playClipButton_NewContact" Margin="67,428,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Background="White"/>
         <Button Name="onemoretimeClip" Tag="7" Content="OneMo'Time" FontSize="45" Height="75" Width="270" mt:MultitouchScreen.NewContact="playClipButton_NewContact" Margin="67,529,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Background="White"/>
-    </Grid>
+    </Grid> 
 </UserControl>
 
     
