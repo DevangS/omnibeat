@@ -25,6 +25,7 @@ namespace OmniBeat
     {
         public bool isSynced;
         public bool ioLock;
+        public bool saved;
         public Boolean[][] drumBeats;
         private TempoController tempoController;
         //public Vector<    
@@ -48,7 +49,13 @@ namespace OmniBeat
         private void openButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Open Button Pressed");
-            loadFromFile("save");
+            if (isSynced && !ioLock && saved)
+            {
+                ioLock = true;
+                saveToFile("save");
+                saved = false;
+                ioLock = false;
+            }
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
@@ -56,8 +63,10 @@ namespace OmniBeat
             Console.WriteLine("Save Button Pressed");
             if (isSynced && !ioLock)
             {
-                saveToFile("save");
                 ioLock = true;
+                saveToFile("save");
+                saved = true;
+                ioLock = false;
             }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
