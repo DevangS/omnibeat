@@ -16,8 +16,8 @@ namespace OmniBeat
                                       "cymbal.wav", "everybody.wav", "oh-yeah.wav", "one-more-time.wav", "shots.wav", "youre-a-jerk.wav" };
         public DrumKit()
         {
-            sampleSources = new List<SampleSource>();
-            SampleSource temp;
+            sampleSources = new List<SampleSource[]>();
+            SampleSource[] temp;
             for (int i = 0; i < 2 ; i++ ){
                 Console.WriteLine("Load #" + i);
                 foreach (string s in filenames)
@@ -25,12 +25,12 @@ namespace OmniBeat
                     Console.WriteLine(sampleDir + s);
                     temp = SampleSource.CreateFromWaveFile(sampleDir + s);
                     sampleSources.Add(temp);
-                    Console.WriteLine(temp.SampleWaveFormat.SampleRate + " " + temp.SampleWaveFormat.Channels);
+                    Console.WriteLine(temp[4].SampleWaveFormat.SampleRate + " " + temp[4].SampleWaveFormat.Channels);
                 }
             }   
             temp = sampleSources.ElementAt(0);
 
-            this.waveFormat = WaveFormat.CreateIeeeFloatWaveFormat(temp.SampleWaveFormat.SampleRate, temp.SampleWaveFormat.Channels);
+            this.waveFormat = WaveFormat.CreateIeeeFloatWaveFormat(temp[4].SampleWaveFormat.SampleRate, temp[4].SampleWaveFormat.Channels);
 
 
 
