@@ -98,7 +98,9 @@ namespace OmniBeat
             pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
             this.pitchController = pitchCtrl;
-           
+            this.pitchController.reloadState();
+
+
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
             //this.pattern[1, 4] = this.pattern[1, 12] = 127;
@@ -211,6 +213,7 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
             b.Background = Brushes.OrangeRed;
+
         }
 
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
