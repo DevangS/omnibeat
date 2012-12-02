@@ -77,10 +77,22 @@ namespace OmniBeat
         private void loadFromFile(String filename)
         {
             string[] lines = System.IO.File.ReadAllLines(filename);
-
+          
+            //read tempo
             BeatMaker.tempoController.Tempo = Convert.ToInt32(lines[0]);
 
+            //read chosenButton
+            BeatMaker.chosenButton = Convert.ToInt32(lines[1]);
+
+            //read chosenClips
+            for (int i = 0; i < BeatMaker.chosenClips.Length; i++)
+            {
+                BeatMaker.chosenClips[i] = Convert.ToInt32(lines[i + 2]);
+            }
+
+            //read drumbeats
             for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
+
             {
                 try
                 {
@@ -103,14 +115,24 @@ namespace OmniBeat
         {
             using (StreamWriter file = new StreamWriter(filename))
             {
-                //update chosen buttons, chosen clips, drumbeats, pattern, tempo, pitch.state, 
+                StringBuilder line = new StringBuilder();
+                //update pattern,  pitch.state
+ 
                 //write tempo to disk
                 file.WriteLine(BeatMaker.tempoController.Tempo.ToString());
+
+                //write chosenButton
+                file.WriteLine(BeatMaker.chosenButton.ToString());
+
+                //write chosenClips to disk
+                foreach (int clip in BeatMaker.chosenClips)
+                    line.Append(clip).Append(" ");
+                file.WriteLine(line.ToString());
 
                 //write drumBeats to disk
                 for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
                 {
-                    StringBuilder line = new StringBuilder();
+                    line = new StringBuilder();
                     for (int j = 0; j < BeatMaker.drumBeats.GetLength(i); j++)
                     {
                         int val = BeatMaker.drumBeats[i][j] ? 1 : 0;

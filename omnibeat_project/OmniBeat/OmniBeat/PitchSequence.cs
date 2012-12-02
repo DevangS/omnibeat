@@ -38,9 +38,9 @@ namespace OmniBeat
 
 
             // Populate the grid
-            for (int row = 0; row < 9; row++)
+            for (int row = 0; row < maxRow; row++)
             {
-                for (int col = 0; col < 8; col++)
+                for (int col = 0; col < maxCol; col++)
                 {
                     grid[col, row] = pgrid[col, row];
                 }
@@ -49,24 +49,29 @@ namespace OmniBeat
 
         public void Click(int col, int row, ref Boolean[,,] state)
         {
-            for (int r = 0; r < maxRow; r++)
-            {
-                if (r != row)
-                {
-                    UnClick(col, r, ref state);
+            for (int r = 0; r < row; r++)
+            {    
+                UnClick(col, r, ref state);  
+            }
 
-                }
-                else
+            for (int r = row; r < maxRow; r++)
+            {
+                if (r == row)
                 {
-                    grid[col, row].Fill = new SolidColorBrush(Colors.DarkSalmon);
-                    grid[col, row].Opacity = 100;
-                    state[BeatMaker.chosenButton, col, row] = true;
+                    state[MainWindow.chosenButton, col, row] = true;
+                    grid[col, r].Stroke = Brushes.Black;
                 }
+				else
+				{
+					grid[col, r].Stroke = Brushes.Transparent;
+				}
+                grid[col, r].Fill = new SolidColorBrush(Colors.DarkSalmon);
+                grid[col, r].Opacity = 100;
             }
 
         }
 
-        public void UnClick(int col, int row, ref Boolean[,,] state)
+        public void UnClick(int col, int row, ref Boolean[, ,] state)
         {
             grid[col, row].Fill = new SolidColorBrush(Colors.White);
             grid[col, row].Opacity = 0;

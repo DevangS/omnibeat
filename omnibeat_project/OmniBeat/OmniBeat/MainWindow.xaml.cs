@@ -48,7 +48,7 @@ namespace OmniBeat
         private enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
                                   Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
-        private int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
         public Boolean[][] drumBeats;
         */
@@ -225,7 +225,6 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
             b.Background = Brushes.OrangeRed;
-
         }
 
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
@@ -244,7 +243,6 @@ namespace OmniBeat
 
             //reset beat buttons
             updateBeatButtons();
-
         }
 
         private void updateSoundClipButtons()
