@@ -12,13 +12,8 @@ namespace OmniBeat
         private List<SampleSource[]> sampleSources;
         private WaveFormat waveFormat;
         private string sampleDir = "Samples\\";
-        private string[] filenames = {"kick-trimmed", "snare-trimmed", "closed-hat-trimmed", "open-hat-trimmed",
-                                      "beats", "cymbal-and-drum", "cymbal", "dubwub", "electrohouse", "everybody",
-                                      "gangsta", "guitar", "help", "hip-hop-non-stop", "i-love-college", 
-                                      "never-gonna-give-you-up", "oh-yeah", "one-more-time", "scratch", "shots",
-                                      "swagga", "swangies", "youre-a-jerk" };
-
-
+        public static string[] filenames = {"kick-trimmed.wav", "snare-trimmed.wav", "closed-hat-trimmed.wav", "open-hat-trimmed.wav",
+                                      "cymbal.wav", "everybody.wav", "oh-yeah.wav", "one-more-time.wav", "shots.wav", "youre-a-jerk.wav" };
         public DrumKit()
         {
             //SampleSource kickSample = SampleSource.CreateFromWaveFile("Samples\\kick-trimmed.wav");

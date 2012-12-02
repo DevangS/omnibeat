@@ -35,22 +35,21 @@ namespace OmniBeat
         DrumKit kit = new DrumKit();
         Boolean play = false;
         Boolean stop = false;
-        private static Boolean[] kick = new Boolean[MAX_BEATS];
-        private static Boolean[] snare = new Boolean[MAX_BEATS];
-        private static Boolean[] closedHats = new Boolean[MAX_BEATS];
-        private static Boolean[] openHats = new Boolean[MAX_BEATS];
 
         private int selectedKit = 0;
+        private int chosenButton = 0;
+        private int[] chosenClips = {0,1,2,3};
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
-        //random changes
-        //random change
+        private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
+                                  "Everybody", "Oh Yeah", "OneMoreTime", "Scratch", "Jerk" };
 
-        private Boolean[][] drumBeats = { kick, snare, closedHats, openHats };
-        
+        private Boolean[][] drumBeats;
+
         public MainWindow()
         {
             InitializeComponent();
+            Menu.referenceDrumBeats(drumBeats);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
@@ -63,15 +62,24 @@ namespace OmniBeat
 
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
+            drumBeats = new Boolean[notes.Length][];
+            chosenClips = new int[] {0,1,2,3};
+            //updateSelectedClips();
 
-            for (int i = 0; i < MAX_BEATS; i++)
+            //create an boolean array for each sample
+            for (int i = 0; i < notes.Length; i++)
             {
-                kick[i] = false;
-                snare[i] = false;
-                closedHats[i] = false;
-                openHats[i] = false;
+                Boolean[] newArray = new Boolean[MAX_BEATS];
+                //make all values false
+                for (int j = 0; j < MAX_BEATS; j++)
+                {
+                    newArray[j] = false;
+                }
+                drumBeats[i] = newArray;
             }
-            var notes = new string[] { "Kick", "Snare", "Closed Hats", "Open Hats" };
+
+
+
             this.pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
             this.pitchController = pitchCtrl;
@@ -83,10 +91,10 @@ namespace OmniBeat
                 //this.pattern[2, n] = 127;
             //}
 
-            instrumentButtonArr[0] = kickSelectButton;
-            instrumentButtonArr[1] = snareSelectButton;
-            instrumentButtonArr[2] = closedHatsSelectButton;
-            instrumentButtonArr[3] = openHatsSelectButton;
+            instrumentButtonArr[0] = clipSelectButton0;
+            instrumentButtonArr[1] = clipSelectButton1;
+            instrumentButtonArr[2] = clipSelectButton2;
+            instrumentButtonArr[3] = clipSelectButton3;
 
             beatButtonArr[0] = beatButton1;
             beatButtonArr[1] = beatButton2;
@@ -103,6 +111,19 @@ namespace OmniBeat
             //spaceProvider.CreateFingerTracker();
             //vizLayer.SpaceProvider = spaceProvider;
         }
+
+        //call this method when the selected instruments have been changed
+        private void updateSelectedClips()
+        {
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                int x = chosenClips[i];
+                Button b = instrumentButtonArr[i];
+                b.Tag = x.ToString();
+                b.Name = notes[i];
+            }
+        }
+
 
         private void playButton_NewContact(object sender, NewContactEventArgs e)
         {
@@ -149,10 +170,13 @@ namespace OmniBeat
             Button b = (Button)sender;
             
             //change prev selected back to whtie 
-            instrumentButtonArr[selectedKit].Background = Brushes.White;
+            instrumentButtonArr[chosenButton].Background = Brushes.White;
+            chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
+   
             b.Background = Brushes.OrangeRed;
             Console.WriteLine(b.Name);
+            Console.WriteLine(b.Tag + " " +selectedKit);
 
             //reset beat buttons
             Boolean[] buttonStates = drumBeats[selectedKit];
@@ -226,35 +250,5 @@ namespace OmniBeat
             Stop();
         }
 
-        /*
-        public int Tempo
-        {
-            get
-            {
-                return tempo;
-            }
-            set
-            {
-                if (tempo != value)
-                {
-                    this.tempo = value;
-                    if (this.patternSequencer != null)
-                    {
-                        this.patternSequencer.Tempo = value;
-                    }
-                    //RaisePropertyChanged("Tempo");
-                }
-            }
-        }
-        */
-     /*   private void RaisePropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;*/
     }
 }

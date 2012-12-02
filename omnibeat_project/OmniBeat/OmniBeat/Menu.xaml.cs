@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,16 +23,40 @@ namespace OmniBeat
     /// </summary>
     public partial class Menu : UserControl
     {
+        public bool drumBeats_isSet;
+        public bool delay_flag;
+        public Boolean[][] drumBeats;
+        //public Vector<    
+        
+
         public Menu()
         {
             InitializeComponent();
+            drumBeats_isSet = false;
+            delay_flag = false;
+        }
+
+        public void referenceDrumBeats(Boolean[][] beats)
+        {
+            Console.WriteLine("\n***** referencing the drum beats*****\n");
+            drumBeats_isSet = true;
+            drumBeats = beats;
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
+            // Use timers.. 
+            Console.WriteLine("Save Button Pressed");
+            if (drumBeats_isSet && !delay_flag)
+            {
+                delay_flag = true;
+                
+            }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
+
+            Console.WriteLine("Clear Button Pressed");
         }
     }
 }
