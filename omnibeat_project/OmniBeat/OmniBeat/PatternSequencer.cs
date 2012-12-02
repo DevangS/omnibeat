@@ -11,6 +11,7 @@ namespace OmniBeat
         private readonly DrumPattern drumPattern;
         private readonly DrumKit drumKit;
         private int tempo;
+        private int[,] pitch;
         private int samplesPerStep;
 
         public PatternSequencer(DrumPattern drumPattern, DrumKit kit)
@@ -18,6 +19,7 @@ namespace OmniBeat
             this.drumKit = kit;
             this.drumPattern = drumPattern;
             this.Tempo = 120;
+            this.pitch = new int[MainWindow.noteNum, drumPattern.Steps];
         }
 
         public int Tempo
@@ -34,6 +36,11 @@ namespace OmniBeat
                     this.newTempo = true;
                 }
             }
+        }
+
+        public void setPitch(int note, int value, int step)
+        {
+            pitch[note, step] = value;
         }
 
         private bool newTempo;
@@ -67,7 +74,7 @@ namespace OmniBeat
                 {
                     if (drumPattern[note, currentStep] != 0)
                     {
-                        var sampleProvider = drumKit.GetSampleProvider(note);
+                        var sampleProvider = drumKit.GetSampleProvider(note, pitch[note, currentStep]);
                         sampleProvider.DelayBy = delayForThisStep;
                         Debug.WriteLine("beat at step {0}, patternPostion={1}, delayBy {2}", currentStep, patternPosition, delayForThisStep);
                         mixerInputs.Add(sampleProvider);

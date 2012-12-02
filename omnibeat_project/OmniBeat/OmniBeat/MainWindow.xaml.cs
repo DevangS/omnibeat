@@ -30,14 +30,16 @@ namespace OmniBeat
         private DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
+        public PitchController pitchController;
         //private int tempo;
         DrumKit kit = new DrumKit();
         Boolean play = false;
         Boolean stop = false;
 
         private int selectedKit = 0;
-        private int chosenButton = 0;
-        private int[] chosenClips = {0,1,2,3};
+        public static int chosenButton = 0;
+        public static int noteNum = 4;
+        private static int[] chosenClips = {0,1,2,3};
         private Button[] instrumentButtonArr = new Button[4];
         private Button[] beatButtonArr = new Button[MAX_BEATS];
         private string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
@@ -82,6 +84,8 @@ namespace OmniBeat
 
             this.pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
+            this.pitchController = pitchCtrl;
+           
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
             //this.pattern[1, 4] = this.pattern[1, 12] = 127;
@@ -158,6 +162,12 @@ namespace OmniBeat
             else b.Background = Brushes.White;
         }
 
+        private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.OrangeRed;
+        }
+
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
@@ -166,6 +176,9 @@ namespace OmniBeat
             instrumentButtonArr[chosenButton].Background = Brushes.White;
             chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
+
+            //reload pitch
+            this.pitchController.reloadState();
    
             b.Background = Brushes.OrangeRed;
             Console.WriteLine(b.Name);
@@ -222,6 +235,7 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
+            this.pitchController.setPatternSequencer(ref this.patternSequencer);
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();

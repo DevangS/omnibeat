@@ -132,6 +132,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PitchSequence.cs" />
     <Compile Include="DrumKit.cs" />
     <Compile Include="DrumPattern.cs" />
     <Compile Include="DrumPatternSampleProvider.cs" />
@@ -141,6 +142,10 @@
     <Compile Include="MusicSampleProvider.cs" />
     <Compile Include="PatternSequencer.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PitchBox.cs" />
+    <Compile Include="PitchController.xaml.cs">
+      <DependentUpon>PitchController.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleSource.cs" />
     <Compile Include="TempoController.xaml.cs">
       <DependentUpon>TempoController.xaml</DependentUpon>
@@ -161,6 +166,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PitchController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
