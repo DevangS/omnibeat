@@ -60,7 +60,7 @@ namespace OmniBeat
                 {
                     grid[col, row].Fill = new SolidColorBrush(Colors.DarkSalmon);
                     grid[col, row].Opacity = 100;
-                    state[MainWindow.chosenButton, col, row] = true;
+                    state[BeatMaker.chosenButton, col, row] = true;
                 }
             }
 
@@ -70,7 +70,7 @@ namespace OmniBeat
         {
             grid[col, row].Fill = new SolidColorBrush(Colors.White);
             grid[col, row].Opacity = 0;
-            state[MainWindow.chosenButton, col, row] = false;
+            state[BeatMaker.chosenButton, col, row] = false;
         }
     }
 }

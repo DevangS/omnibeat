@@ -24,6 +24,7 @@ namespace OmniBeat
     /// </summary>
     public partial class MainWindow : Multitouch.Framework.WPF.Controls.Window
     {
+        /*
         public static int MAX_BEATS = 8;
         public InteractiveSpaceProvider spaceProvider;
         public IWavePlayer waveOut;
@@ -50,7 +51,7 @@ namespace OmniBeat
         private int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
 
         public Boolean[][] drumBeats;
-
+        */
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
@@ -59,7 +60,10 @@ namespace OmniBeat
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            Switcher.mainWindow = this;
+            Switcher.Switch(new BeatMaker());
+            /*
             Menu.sync(this);
 
             // *************************************************************
@@ -133,10 +137,11 @@ namespace OmniBeat
             //Uncomment these lines to draw fingers on the projected screen
             //spaceProvider.CreateFingerTracker();
             //vizLayer.SpaceProvider = spaceProvider;
+             */
         }
 
 
-
+/*
 
         //call this method when the selected instruments have been changed
         //uses chosenClips. Alternately, maybe change it so it takes an array.
@@ -358,6 +363,6 @@ namespace OmniBeat
             //recolour GUI beat buttons
             updateBeatButtons();
         }
-
+        */
     }
 }
