@@ -146,7 +146,8 @@ namespace OmniBeat
             Button b = (Button)sender;
             
             //change prev selected back to whtie 
-            //instrumentButtonArr[chosenButton].Background = Brushes.White;
+            instrumentButtonArr[chosenButton].Background = Brushes.White;
+            chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
    
             b.Background = Brushes.OrangeRed;
