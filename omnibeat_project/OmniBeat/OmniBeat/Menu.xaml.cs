@@ -23,40 +23,89 @@ namespace OmniBeat
     /// </summary>
     public partial class Menu : UserControl
     {
-        public bool drumBeats_isSet;
+        public bool isSynced;
         public bool delay_flag;
         public Boolean[][] drumBeats;
+        private TempoController tempoController;
         //public Vector<    
         
 
         public Menu()
         {
             InitializeComponent();
-            drumBeats_isSet = false;
+            isSynced = false;
             delay_flag = false;
         }
 
-        public void referenceDrumBeats(Boolean[][] beats)
+        public void sync(Boolean[][] beats, TempoController tempo)
         {
-            Console.WriteLine("\n***** referencing the drum beats*****\n");
-            drumBeats_isSet = true;
+            Console.WriteLine("\n***** inside sync*****\n");
+            isSynced = true;
             drumBeats = beats;
+            tempoController = tempo;
+        }
+
+        private void openButton_NewContact(object sender, NewContactEventArgs e)
+        {
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
             // Use timers.. 
             Console.WriteLine("Save Button Pressed");
-            if (drumBeats_isSet && !delay_flag)
+            if (isSynced && !delay_flag)
             {
                 delay_flag = true;
-                
+                saveToFile("save");
             }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
-
             Console.WriteLine("Clear Button Pressed");
+   
+            //iterate over each dimensions/first array dereference
+            for (int i = 0; i <= drumBeats.Rank; i++)
+            {
+                //iterate over each element in the array at the ith dimension
+                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                {
+                    //set the jth beat for the ith instrument to false
+                    drumBeats[i][j] = false;
+                }
+            }
+
+            //TODO: recolour all the beat buttons to be white in the GUI
         }
+
+        private void loadFromFile(String filename)
+        {
+            using (StreamReader file = new StreamReader(filename))
+            {
+                //tempoController.Tempo = toInt32(file.ReadLine());
+
+            }
+        }
+        private void saveToFile(String filename)
+        {
+            using (StreamWriter file = new StreamWriter(filename))
+            {
+                //write tempo to disk
+                file.WriteLine(tempoController.Tempo.ToString());
+
+                //write drumBeats to disk
+                for (int i = 0; i < drumBeats.Rank; i++)
+                {
+                    StringBuilder line = new StringBuilder();
+                    for (int j = 0; j < drumBeats.GetLength(i); j++)
+                    {
+                        int val = drumBeats[i][j] ? 1 : 0;
+                        line.Append(val).Append(" ");
+                    }
+                    file.WriteLine(line.ToString());
+                }
+            }
+
+        }
+
     }
 }

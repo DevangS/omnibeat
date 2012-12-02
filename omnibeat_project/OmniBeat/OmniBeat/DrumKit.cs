@@ -9,7 +9,7 @@ namespace OmniBeat
 {
     class DrumKit
     {
-        private List<SampleSource> sampleSources;
+        private List<SampleSource[]> sampleSources;
         private WaveFormat waveFormat;
         private string sampleDir = "Samples\\";
         public static string[] filenames = {"kick-trimmed.wav", "snare-trimmed.wav", "closed-hat-trimmed.wav", "open-hat-trimmed.wav",
@@ -33,6 +33,7 @@ namespace OmniBeat
             this.waveFormat = WaveFormat.CreateIeeeFloatWaveFormat(temp.SampleWaveFormat.SampleRate, temp.SampleWaveFormat.Channels);
 
 
+
         }
 
         public virtual WaveFormat WaveFormat
@@ -40,9 +41,9 @@ namespace OmniBeat
             get { return waveFormat; }
         }
 
-        public MusicSampleProvider GetSampleProvider(int note)
+        public MusicSampleProvider GetSampleProvider(int note, int pitch)
         {
-            return new MusicSampleProvider(this.sampleSources[note]);
+            return new MusicSampleProvider(this.sampleSources[note][pitch]);
         }
     }
 }

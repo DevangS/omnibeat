@@ -30,6 +30,7 @@ namespace OmniBeat
         private static DrumPattern pattern;
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
+        public PitchController pitchController;
         //private int tempo;
         DrumKit kit = new DrumKit();
         Boolean play = false;
@@ -52,7 +53,8 @@ namespace OmniBeat
         public MainWindow()
         {
             InitializeComponent();
-            Menu.referenceDrumBeats(drumBeats);
+
+            Menu.sync(drumBeats, tempoController);
 
             // *************************************************************
             // Uses the Person class in the Window code-behind
@@ -94,6 +96,8 @@ namespace OmniBeat
 
             pattern = new DrumPattern(notes, MAX_BEATS);
             this.tempoController = tempoCtrl;
+            this.pitchController = pitchCtrl;
+           
             //16 beat stuff
             //this.pattern[0, 0] = this.pattern[0, 8] = 127;
             //this.pattern[1, 4] = this.pattern[1, 12] = 127;
@@ -202,6 +206,12 @@ namespace OmniBeat
             else b.Background = Brushes.White;
         }
 
+        private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.OrangeRed;
+        }
+
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
@@ -210,6 +220,9 @@ namespace OmniBeat
             instrumentButtonArr[chosenButton].Background = Brushes.White;
             chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
+
+            //reload pitch
+            this.pitchController.reloadState();
    
             b.Background = Brushes.OrangeRed;
             Console.WriteLine(b.Name);
@@ -266,6 +279,7 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
+            this.pitchController.setPatternSequencer(ref this.patternSequencer);
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();

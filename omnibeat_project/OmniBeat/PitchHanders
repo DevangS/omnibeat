@@ -1,0 +1,360 @@
+        private void rectangle00_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,0].Click();
+        }
+
+        private void rectangle01_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,1].Click();
+        }
+
+        private void rectangle02_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,2].Click();
+        }
+
+        private void rectangle03_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,3].Click();
+        }
+
+        private void rectangle04_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,4].Click();
+        }
+
+        private void rectangle05_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,5].Click();
+        }
+
+        private void rectangle06_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,6].Click();
+        }
+
+        private void rectangle07_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,7].Click();
+        }
+
+        private void rectangle08_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[0,8].Click();
+        }
+
+        private void rectangle10_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,0].Click();
+        }
+
+        private void rectangle11_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,1].Click();
+        }
+
+        private void rectangle12_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,2].Click();
+        }
+
+        private void rectangle13_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,3].Click();
+        }
+
+        private void rectangle14_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,4].Click();
+        }
+
+        private void rectangle15_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,5].Click();
+        }
+
+        private void rectangle16_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,6].Click();
+        }
+
+        private void rectangle17_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,7].Click();
+        }
+
+        private void rectangle18_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[1,8].Click();
+        }
+
+        private void rectangle20_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,0].Click();
+        }
+
+        private void rectangle21_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,1].Click();
+        }
+
+        private void rectangle22_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,2].Click();
+        }
+
+        private void rectangle23_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,3].Click();
+        }
+
+        private void rectangle24_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,4].Click();
+        }
+
+        private void rectangle25_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,5].Click();
+        }
+
+        private void rectangle26_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,6].Click();
+        }
+
+        private void rectangle27_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,7].Click();
+        }
+
+        private void rectangle28_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[2,8].Click();
+        }
+
+        private void rectangle30_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,0].Click();
+        }
+
+        private void rectangle31_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,1].Click();
+        }
+
+        private void rectangle32_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,2].Click();
+        }
+
+        private void rectangle33_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,3].Click();
+        }
+
+        private void rectangle34_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,4].Click();
+        }
+
+        private void rectangle35_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,5].Click();
+        }
+
+        private void rectangle36_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,6].Click();
+        }
+
+        private void rectangle37_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,7].Click();
+        }
+
+        private void rectangle38_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[3,8].Click();
+        }
+
+        private void rectangle40_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,0].Click();
+        }
+
+        private void rectangle41_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,1].Click();
+        }
+
+        private void rectangle42_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,2].Click();
+        }
+
+        private void rectangle43_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,3].Click();
+        }
+
+        private void rectangle44_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,4].Click();
+        }
+
+        private void rectangle45_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,5].Click();
+        }
+
+        private void rectangle46_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,6].Click();
+        }
+
+        private void rectangle47_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,7].Click();
+        }
+
+        private void rectangle48_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[4,8].Click();
+        }
+
+        private void rectangle50_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,0].Click();
+        }
+
+        private void rectangle51_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,1].Click();
+        }
+
+        private void rectangle52_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,2].Click();
+        }
+
+        private void rectangle53_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,3].Click();
+        }
+
+        private void rectangle54_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,4].Click();
+        }
+
+        private void rectangle55_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,5].Click();
+        }
+
+        private void rectangle56_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,6].Click();
+        }
+
+        private void rectangle57_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,7].Click();
+        }
+
+        private void rectangle58_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[5,8].Click();
+        }
+
+        private void rectangle60_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,0].Click();
+        }
+
+        private void rectangle61_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,1].Click();
+        }
+
+        private void rectangle62_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,2].Click();
+        }
+
+        private void rectangle63_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,3].Click();
+        }
+
+        private void rectangle64_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,4].Click();
+        }
+
+        private void rectangle65_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,5].Click();
+        }
+
+        private void rectangle66_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,6].Click();
+        }
+
+        private void rectangle67_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,7].Click();
+        }
+
+        private void rectangle68_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[6,8].Click();
+        }
+
+        private void rectangle70_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,0].Click();
+        }
+
+        private void rectangle71_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,1].Click();
+        }
+
+        private void rectangle72_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,2].Click();
+        }
+
+        private void rectangle73_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,3].Click();
+        }
+
+        private void rectangle74_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,4].Click();
+        }
+
+        private void rectangle75_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,5].Click();
+        }
+
+        private void rectangle76_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,6].Click();
+        }
+
+        private void rectangle77_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,7].Click();
+        }
+
+        private void rectangle78_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ConfigClass.pitchGrid.grid[7,8].Click();
+        }
+

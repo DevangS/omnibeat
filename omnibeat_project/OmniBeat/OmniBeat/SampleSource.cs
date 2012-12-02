@@ -9,7 +9,7 @@ namespace OmniBeat
 {
     class SampleSource
     {
-         public static SampleSource CreateFromWaveFile(string fileName)
+         public static SampleSource[] CreateFromWaveFile(string fileName)
         {
             using (var reader = new WaveFileReader(fileName))
             {
@@ -47,8 +47,47 @@ namespace OmniBeat
                 {
                     throw new InvalidOperationException(String.Format("Couldn't read the whole sample, expected {0} samples, got {1}", n, sourceSamples));
                 }
-                SampleSource ss = new SampleSource(sampleData, sp.WaveFormat);
-                return ss;
+
+                SampleSource[] result = new SampleSource[9];
+                // Normal pitch
+                int normal = 4;
+                result[normal] = new SampleSource(sampleData, sp.WaveFormat);
+                int pitch = 5;
+
+                for (int currentPitch = 0; currentPitch < normal; currentPitch++, pitch--)
+                {
+                    float[] changedPitchData = new float[sampleData.Length/pitch];
+                    for (int j = 0, i = 0; i  < sampleData.Length && j < changedPitchData.Length; i++)
+                    {
+                        if (i % pitch == 0 && j != 0)
+                        {
+                            changedPitchData[j] = sampleData[i];
+                            j++;
+                        }
+                    }
+
+                    result[currentPitch] = new SampleSource(changedPitchData, sp.WaveFormat);
+                }
+
+                pitch = 2;
+
+                for (int currentPitch = normal+1; currentPitch < result.Length; currentPitch++, pitch++)
+                {
+                    float[] changedPitchData = new float[sampleData.Length * pitch];
+                    for (int j = 0, i = 0; i < sampleData.Length && j < changedPitchData.Length; j++)
+                    {
+                        changedPitchData[j] = sampleData[i];
+                                        
+                        if (j % pitch == 0 && j != 0)
+                        {
+                            i++;
+                        }
+                    }
+
+                    result[currentPitch] = new SampleSource(changedPitchData, sp.WaveFormat);
+                    pitch--;
+                }
+                return result;
             }
         }
 
