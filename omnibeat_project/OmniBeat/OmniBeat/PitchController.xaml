@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="OmniBeat.PitchController"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
+             xmlns:space="clr-namespace:InteractiveSpace.SDK.GUI;assembly=InteractiveSpace.SDK"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="510" d:DesignWidth="1200">
+    <Grid Height="500" Width="1190">
+
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,5,0,0" Name="rectangle00" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,59,0,0" Name="rectangle01" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,113,0,0" Name="rectangle02" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,167,0,0" Name="rectangle03" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,221,0,0" Name="rectangle04" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,275,0,0" Name="rectangle05" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,329,0,0" Name="rectangle06" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,383,0,0" Name="rectangle07" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="0,437,0,0" Name="rectangle08" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,5,0,0" Name="rectangle10" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,59,0,0" Name="rectangle11" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,113,0,0" Name="rectangle12" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,167,0,0" Name="rectangle13" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,221,0,0" Name="rectangle14" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,275,0,0" Name="rectangle15" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,329,0,0" Name="rectangle16" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,383,0,0" Name="rectangle17" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="150,437,0,0" Name="rectangle18" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,5,0,0" Name="rectangle20" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,59,0,0" Name="rectangle21" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,113,0,0" Name="rectangle22" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,167,0,0" Name="rectangle23" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,221,0,0" Name="rectangle24" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,275,0,0" Name="rectangle25" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,329,0,0" Name="rectangle26" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,383,0,0" Name="rectangle27" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="300,437,0,0" Name="rectangle28" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,5,0,0" Name="rectangle30" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,59,0,0" Name="rectangle31" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,113,0,0" Name="rectangle32" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,167,0,0" Name="rectangle33" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,221,0,0" Name="rectangle34" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,275,0,0" Name="rectangle35" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,329,0,0" Name="rectangle36" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,383,0,0" Name="rectangle37" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="450,437,0,0" Name="rectangle38" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,5,0,0" Name="rectangle40" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,59,0,0" Name="rectangle41" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,113,0,0" Name="rectangle42" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,167,0,0" Name="rectangle43" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,221,0,0" Name="rectangle44" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,275,0,0" Name="rectangle45" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,329,0,0" Name="rectangle46" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,383,0,0" Name="rectangle47" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="600,437,0,0" Name="rectangle48" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,5,0,0" Name="rectangle50" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,59,0,0" Name="rectangle51" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,113,0,0" Name="rectangle52" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,167,0,0" Name="rectangle53" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,221,0,0" Name="rectangle54" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,275,0,0" Name="rectangle55" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,329,0,0" Name="rectangle56" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,383,0,0" Name="rectangle57" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="750,437,0,0" Name="rectangle58" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,5,0,0" Name="rectangle60" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,59,0,0" Name="rectangle61" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,113,0,0" Name="rectangle62" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,167,0,0" Name="rectangle63" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,221,0,0" Name="rectangle64" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,275,0,0" Name="rectangle65" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,329,0,0" Name="rectangle66" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,383,0,0" Name="rectangle67" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="900,437,0,0" Name="rectangle68" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,5,0,0" Name="rectangle70" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,59,0,0" Name="rectangle71" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,113,0,0" Name="rectangle72" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,167,0,0" Name="rectangle73" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,221,0,0" Name="rectangle74" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,275,0,0" Name="rectangle75" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,329,0,0" Name="rectangle76" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,383,0,0" Name="rectangle77" VerticalAlignment="Top" Width="140" Height="50"/>
+        <Rectangle Opacity="100" Fill="Red" HorizontalAlignment="Left" Margin="1050,437,0,0" Name="rectangle78" VerticalAlignment="Top" Width="140" Height="50"/>
+
+    </Grid>
+</UserControl>
