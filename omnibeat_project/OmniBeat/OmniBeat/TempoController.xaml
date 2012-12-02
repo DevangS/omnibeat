@@ -10,8 +10,8 @@
              d:DesignHeight="75" d:DesignWidth="800">
     <Grid Height="75" Width="800">
 
-        <Button Name="decreaseTempoButton" Tag="0" Content="-" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="0,0,725,0"/>
-        <Button Name="increaseTempoButton" Tag="1" Content="+" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="725,0,0,0"/>
+        <Button Name="decreaseTempoButton" Tag="0" Content="-" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="0,0,725,0" Background="White"/>
+        <Button Name="increaseTempoButton" Tag="1" Content="+" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="725,0,0,0" Background="White"/>
 
         <Rectangle Name="tempo1" Tag="0" Fill="Turquoise" Height="75" Width="75" Margin="75,0,600,0" Stroke="Black"/>
         <Rectangle Name="tempo2" Tag="1" Fill="White" Height="75" Width="75" Margin="150,0,525,0" Stroke="Black"/>

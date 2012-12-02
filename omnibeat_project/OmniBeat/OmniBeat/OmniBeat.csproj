@@ -147,6 +147,9 @@
       <DependentUpon>PitchController.xaml</DependentUpon>
     </Compile>
     <Compile Include="SampleSource.cs" />
+    <Compile Include="SoundClipsSelect.xaml.cs">
+      <DependentUpon>SoundClipsSelect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TempoController.xaml.cs">
       <DependentUpon>TempoController.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
     <Page Include="PitchController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SoundClipsSelect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TempoController.xaml">
       <SubType>Designer</SubType>
