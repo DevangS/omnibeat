@@ -24,17 +24,19 @@ namespace OmniBeat
     public partial class Menu : UserControl
     {
         public bool isSynced;
-        public bool delay_flag;
+        public bool ioLock;
+        public bool saved;
         public Boolean[][] drumBeats;
         private TempoController tempoController;
-        //public Vector<    
+        private String save1Location;
         
 
         public Menu()
         {
             InitializeComponent();
             isSynced = false;
-            delay_flag = false;
+            ioLock = false;
+            save1Location = Directory.GetCurrentDirectory() + "/save1";
         }
 
         public void sync(Boolean[][] beats, TempoController tempo)
@@ -47,16 +49,25 @@ namespace OmniBeat
 
         private void openButton_NewContact(object sender, NewContactEventArgs e)
         {
+            Console.WriteLine("Open Button Pressed");
+            if (isSynced && !ioLock && saved)
+            {
+                ioLock = true;
+                saveToFile(save1Location);
+                saved = false;
+                ioLock = false;
+            }
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
-            // Use timers.. 
             Console.WriteLine("Save Button Pressed");
-            if (isSynced && !delay_flag)
+            if (isSynced && !ioLock)
             {
-                delay_flag = true;
-                saveToFile("save");
+                ioLock = true;
+                saveToFile(save1Location);
+                saved = true;
+                ioLock = false;
             }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
@@ -80,10 +91,27 @@ namespace OmniBeat
 
         private void loadFromFile(String filename)
         {
-            using (StreamReader file = new StreamReader(filename))
-            {
-                //tempoController.Tempo = toInt32(file.ReadLine());
+            string[] lines = System.IO.File.ReadAllLines(filename);
+          
+            tempoController.Tempo = Convert.ToInt32(lines[0]);
 
+            for (int i = 0; i < drumBeats.Rank; i++)
+            {
+                try
+                {
+                    //get all beats for this instrument
+                    string[] beats = lines[i].Split(' ');
+                    for (int j = 0; j < drumBeats.GetLength(i); j++)
+                    {
+                        //set the value of each beat in our application based on value in file
+                        drumBeats[i][j] = Convert.ToInt32(beats[j]) != 0;
+                    }
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine("Your save file did not have enough beats! " + e.Message);
+                }
+                
             }
         }
         private void saveToFile(String filename)
@@ -105,9 +133,10 @@ namespace OmniBeat
                     }
                     file.WriteLine(line.ToString());
                 }
+                file.Close();
             }
+
             */
         }
-
     }
 }
