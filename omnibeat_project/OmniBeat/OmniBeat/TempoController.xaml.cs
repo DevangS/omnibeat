@@ -28,7 +28,7 @@ namespace OmniBeat
         int incDec;
         private Rectangle[] tempoArr = new Rectangle[MAX_TEMPO];
         private DrumPatternSampleProvider patternSequencer;
-        private int[] value = { 25, 33, 50, 75, 100, 200, 300, 400 };
+        private int[] value = { 33, 50, 66, 80, 100, 125, 150, 175, 200 };
 
         public TempoController()
         {

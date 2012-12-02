@@ -142,7 +142,6 @@
     <Compile Include="MusicSampleProvider.cs" />
     <Compile Include="PatternSequencer.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PitchBox.cs" />
     <Compile Include="PitchController.xaml.cs">
       <DependentUpon>PitchController.xaml</DependentUpon>
     </Compile>

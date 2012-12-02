@@ -14,10 +14,10 @@
         <Button Name="increaseTempoButton" Tag="1" Content="+" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="725,0,0,0" Background="White"/>
 
         <Rectangle Name="tempo1" Tag="0" Fill="Turquoise" Height="75" Width="75" Margin="75,0,600,0" Stroke="Black"/>
-        <Rectangle Name="tempo2" Tag="1" Fill="White" Height="75" Width="75" Margin="150,0,525,0" Stroke="Black"/>
-        <Rectangle Name="tempo3" Tag="2" Fill="White" Height="75" Width="75" Margin="225,0,450,0" Stroke="Black"/>
-        <Rectangle Name="tempo4" Tag="3" Fill="White" Height="75" Width="75" Margin="300,0,375,0" Stroke="Black"/>
-        <Rectangle Name="tempo5" Tag="4" Fill="White" Height="75" Width="75" Margin="375,0,300,0" Stroke="Black"/>
+        <Rectangle Name="tempo2" Tag="1" Fill="Turquoise" Height="75" Width="75" Margin="150,0,525,0" Stroke="Black"/>
+        <Rectangle Name="tempo3" Tag="2" Fill="Turquoise" Height="75" Width="75" Margin="225,0,450,0" Stroke="Black"/>
+        <Rectangle Name="tempo4" Tag="3" Fill="Turquoise" Height="75" Width="75" Margin="300,0,375,0" Stroke="Black"/>
+        <Rectangle Name="tempo5" Tag="4" Fill="Turquoise" Height="75" Width="75" Margin="375,0,300,0" Stroke="Black"/>
         <Rectangle Name="tempo6" Tag="5" Fill="White" Height="75" Width="75" Margin="450,0,225,0" Stroke="Black"/>
         <Rectangle Name="tempo7" Tag="6" Fill="White" Height="75" Width="75" Margin="525,0,150,0" Stroke="Black"/>
         <Rectangle Name="tempo8" Tag="7" Fill="White" Height="75" Width="75" Margin="600,0,75,0" Stroke="Black"/>
