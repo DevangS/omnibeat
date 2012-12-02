@@ -50,7 +50,8 @@ namespace OmniBeat
 
         public void setPitch(int note, int value, int step)
         {
-            this.dsp.setPitch(note, value, step);
+            if( this.dsp != null)
+                this.dsp.setPitch(note, value, step);
         }
 
         internal void reloadState()

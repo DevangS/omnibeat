@@ -38,7 +38,6 @@ namespace OmniBeat
 
         private int selectedKit = 0;
         public static int chosenButton = 0;
-        public static int noteNum = 4;
         private int[] chosenClips = {0,1,2,3}; //CHANGE THIS ARRAY TO CHANGE SELECTED CLIPS
                                                //AND THEN CALL updateSelectedClips() TO 
                                                //SET IT. 
@@ -48,6 +47,7 @@ namespace OmniBeat
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
+        public static int noteNum = 20;
 
         private Boolean[][] drumBeats;
 
@@ -69,7 +69,7 @@ namespace OmniBeat
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length*2][];
-            chosenClips = new int[] {4,8,9,7};
+            chosenClips = new int[] {0,1,2,3};
 
 
             //create an boolean array for each sample
