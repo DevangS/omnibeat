@@ -53,7 +53,7 @@ namespace OmniBeat
             if (isSynced && !ioLock && saved)
             {
                 ioLock = true;
-                saveToFile(save1Location);
+                loadFromFile(save1Location);
                 saved = false;
                 ioLock = false;
             }
