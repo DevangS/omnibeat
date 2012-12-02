@@ -62,7 +62,7 @@ namespace OmniBeat
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Clear Button Pressed");
-   
+   /*
             //iterate over each dimensions/first array dereference
             for (int i = 0; i <= drumBeats.Rank; i++)
             {
@@ -73,6 +73,7 @@ namespace OmniBeat
                     drumBeats[i][j] = false;
                 }
             }
+    */
 
             //TODO: recolour all the beat buttons to be white in the GUI
         }
@@ -87,6 +88,7 @@ namespace OmniBeat
         }
         private void saveToFile(String filename)
         {
+            /*
             using (StreamWriter file = new StreamWriter(filename))
             {
                 //write tempo to disk
@@ -104,7 +106,7 @@ namespace OmniBeat
                     file.WriteLine(line.ToString());
                 }
             }
-
+            */
         }
 
     }

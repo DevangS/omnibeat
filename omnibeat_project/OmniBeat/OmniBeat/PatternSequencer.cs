@@ -22,6 +22,13 @@ namespace OmniBeat
             this.drumPattern = drumPattern;
             this.Tempo = 120;
             this.pitch = new int[MainWindow.noteNum, drumPattern.Steps];
+            for (int i = 0; i < MainWindow.noteNum; i++)
+            {
+                for (int j = 0; j < drumPattern.Steps; j++)
+                {
+                    this.pitch[i, j] = 4;
+                }
+            }
         }
 
         public int Tempo
@@ -40,7 +47,7 @@ namespace OmniBeat
             }
         }
 
-        public void setPitch(int note, int value, int step)
+        public void setPitch(int note, int step, int value)
         {
             pitch[note, step] = value;
         }
