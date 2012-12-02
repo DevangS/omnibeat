@@ -9,7 +9,7 @@
              d:DesignHeight="250" d:DesignWidth="300">
     <Grid Height="250" Width="270">
         <Button Name="saveButton" Content="Save" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="saveButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        <Button Name="openButton" Content="Open" Width="270" Height="75" FontSize="40" mt:MultitouchScreen.NewContact="saveButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,84,0,0" />
-        <Button Name="clearButton" Content="Clear" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="clearButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,169,0,0" />
+        <Button Name="openButton" Content="Open" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="openButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,89,0,0" />
+        <Button Name="clearButton" Content="Clear" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="clearButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,178,0,0" />
     </Grid>
 </UserControl>

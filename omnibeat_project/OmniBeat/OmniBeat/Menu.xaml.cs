@@ -55,8 +55,20 @@ namespace OmniBeat
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
-
             Console.WriteLine("Clear Button Pressed");
+   
+            //iterate over each dimensions/first array dereference
+            for (int i = 0; i <= drumBeats.Rank; i++)
+            {
+                //iterate over each element in the array at the ith dimension
+                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                {
+                    //set the jth beat for the ith instrument to false
+                    drumBeats[i][j] = false;
+                }
+            }
+
+            //TODO: recolour all the beat buttons to be white in the GUI
         }
     }
 }
