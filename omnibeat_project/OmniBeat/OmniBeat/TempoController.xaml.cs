@@ -28,11 +28,12 @@ namespace OmniBeat
         int incDec;
         private Rectangle[] tempoArr = new Rectangle[MAX_TEMPO];
         private DrumPatternSampleProvider patternSequencer;
+        private int[] value = { 25, 33, 50, 75, 100, 200, 300, 400 };
 
         public TempoController()
         {
             InitializeComponent();
-            this.tempo = 1;
+            this.tempo = 4;
 
             tempoArr[0] = tempo1;
             tempoArr[1] = tempo2;
@@ -53,7 +54,7 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
 
-            if (tempo >= 1 && tempo <= 8)
+            if (tempo > 0  && tempo < MAX_TEMPO)
             {
                 incDec = int.Parse(b.Tag.ToString());
 
@@ -74,7 +75,7 @@ namespace OmniBeat
         {
             if (this.patternSequencer != null)
             {
-                this.patternSequencer.Tempo = tempo * 100;
+                this.patternSequencer.Tempo = value[tempo];
             }
             colorTempo();
         }
@@ -100,13 +101,13 @@ namespace OmniBeat
         {
             get
             {
-                return tempo;
+                return value[tempo];
             }
             set
             {
                 if (tempo != value)
                 {
-                    this.tempo = value;
+                    this.value[tempo] = value;
                     if (this.patternSequencer != null)
                     {
                         this.patternSequencer.Tempo = value;
