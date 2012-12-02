@@ -37,7 +37,8 @@ namespace OmniBeat
         Boolean stop = false;
 
         private int selectedKit = 0;
-        private int chosenButton = 0;
+        public static int chosenButton = 0;
+        public static int noteNum = 4;
         private int[] chosenClips = {0,1,2,3}; //CHANGE THIS ARRAY TO CHANGE SELECTED CLIPS
                                                //AND THEN CALL updateSelectedClips() TO 
                                                //SET IT. 

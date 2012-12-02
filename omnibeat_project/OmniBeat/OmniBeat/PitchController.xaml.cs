@@ -43,7 +43,7 @@ namespace OmniBeat
             this.state = new Boolean[MainWindow.noteNum, maxCol, maxRow];
         }
 
-        public void setPatternSequencer(ref DrumPatternSampleProvider pSequencer)
+        public void setPatternSequencer(DrumPatternSampleProvider pSequencer)
         {
             this.dsp = pSequencer;
         }
