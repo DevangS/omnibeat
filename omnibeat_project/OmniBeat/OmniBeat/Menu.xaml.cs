@@ -28,7 +28,7 @@ namespace OmniBeat
         public bool saved;
         public Boolean[][] drumBeats;
         private TempoController tempoController;
-        //public Vector<    
+        private String save1Location;
         
 
         public Menu()
@@ -36,6 +36,7 @@ namespace OmniBeat
             InitializeComponent();
             isSynced = false;
             ioLock = false;
+            save1Location = Directory.GetCurrentDirectory() + "/save1";
         }
 
         public void sync(Boolean[][] beats, TempoController tempo)
@@ -52,7 +53,7 @@ namespace OmniBeat
             if (isSynced && !ioLock && saved)
             {
                 ioLock = true;
-                saveToFile("save");
+                saveToFile(save1Location);
                 saved = false;
                 ioLock = false;
             }
@@ -64,7 +65,7 @@ namespace OmniBeat
             if (isSynced && !ioLock)
             {
                 ioLock = true;
-                saveToFile("save");
+                saveToFile(save1Location);
                 saved = true;
                 ioLock = false;
             }
