@@ -132,6 +132,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Switcher.cs" />
     <Compile Include="PitchSequence.cs" />
     <Compile Include="DrumKit.cs" />
     <Compile Include="DrumPattern.cs" />

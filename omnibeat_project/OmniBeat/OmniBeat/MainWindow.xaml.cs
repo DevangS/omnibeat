@@ -51,10 +51,15 @@ namespace OmniBeat
 
         public Boolean[][] drumBeats;
 
+        public void Navigate(UserControl nextPage)
+        {
+            this.Content = nextPage;
+        }
+
         public MainWindow()
         {
             InitializeComponent();
-
+            
             Menu.sync(this);
 
             // *************************************************************
