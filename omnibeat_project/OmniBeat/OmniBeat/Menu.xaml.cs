@@ -78,8 +78,19 @@ namespace OmniBeat
         {
             string[] lines = System.IO.File.ReadAllLines(filename);
           
+            //read tempo
             window.tempoController.Tempo = Convert.ToInt32(lines[0]);
 
+            //read chosenButton
+            MainWindow.chosenButton = Convert.ToInt32(lines[1]);
+
+            //read chosenClips
+            for (int i = 0; i < window.chosenClips.Length; i++)
+            {
+                window.chosenClips[i] = Convert.ToInt32(lines[i + 2]);
+            }
+
+            //read drumbeats
             for (int i = 0; i < window.drumBeats.Rank; i++)
             {
                 try
@@ -103,14 +114,24 @@ namespace OmniBeat
         {
             using (StreamWriter file = new StreamWriter(filename))
             {
-                //update chosen buttons, chosen clips, drumbeats, pattern, tempo, pitch.state, 
+                StringBuilder line = new StringBuilder();
+                //update pattern,  pitch.state
+ 
                 //write tempo to disk
                 file.WriteLine(window.tempoController.Tempo.ToString());
+
+                //write chosenButton
+                file.WriteLine(MainWindow.chosenButton.ToString());
+
+                //write chosenClips to disk
+                foreach (int clip in window.chosenClips)
+                    line.Append(clip).Append(" ");
+                file.WriteLine(line.ToString());
 
                 //write drumBeats to disk
                 for (int i = 0; i < window.drumBeats.Rank; i++)
                 {
-                    StringBuilder line = new StringBuilder();
+                    line = new StringBuilder();
                     for (int j = 0; j < window.drumBeats.GetLength(i); j++)
                     {
                         int val = window.drumBeats[i][j] ? 1 : 0;
