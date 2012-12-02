@@ -213,6 +213,7 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
             b.Background = Brushes.OrangeRed;
+
         }
 
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)
