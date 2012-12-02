@@ -79,10 +79,6 @@ namespace OmniBeat
                     {
                         PitchController.pitchSequence.Click(col, row, ref state);
                     }
-                    else
-                    {
-                        PitchController.pitchSequence.UnClick(col, row, ref state);
-                    }
                 }
             }
         }
