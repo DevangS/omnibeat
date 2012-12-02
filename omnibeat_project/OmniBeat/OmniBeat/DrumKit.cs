@@ -16,23 +16,24 @@ namespace OmniBeat
                                       "cymbal.wav", "everybody.wav", "oh-yeah.wav", "one-more-time.wav", "shots.wav", "youre-a-jerk.wav" };
         public DrumKit()
         {
-            //SampleSource kickSample = SampleSource.CreateFromWaveFile("Samples\\kick-trimmed.wav");
-            //SampleSource snareSample = SampleSource.CreateFromWaveFile("Samples\\snare-trimmed.wav");
-            //SampleSource closedHatsSample = SampleSource.CreateFromWaveFile("Samples\\closed-hat-trimmed.wav");
-            //SampleSource openHatsSample = SampleSource.CreateFromWaveFile("Samples\\open-hat-trimmed.wav");
             sampleSources = new List<SampleSource[]>();
             SampleSource[] temp;
-            foreach (string s in filenames)
-            {
-                temp = SampleSource.CreateFromWaveFile(sampleDir + s + ".wav");
-                sampleSources.Add(temp);
-            }
+            for (int i = 0; i < 2 ; i++ ){
+                Console.WriteLine("Load #" + i);
+                foreach (string s in filenames)
+                {
+                    Console.WriteLine(sampleDir + s);
+                    temp = SampleSource.CreateFromWaveFile(sampleDir + s);
+                    sampleSources.Add(temp);
+                    Console.WriteLine(temp[4].SampleWaveFormat.SampleRate + " " + temp[4].SampleWaveFormat.Channels);
+                }
+            }   
             temp = sampleSources.ElementAt(0);
-            //sampleSources.Add(kickSample);
-            //sampleSources.Add(snareSample);
-            //sampleSources.Add(closedHatsSample);
-            //sampleSources.Add(openHatsSample);
+
             this.waveFormat = WaveFormat.CreateIeeeFloatWaveFormat(temp[4].SampleWaveFormat.SampleRate, temp[4].SampleWaveFormat.Channels);
+
+
+
         }
 
         public virtual WaveFormat WaveFormat

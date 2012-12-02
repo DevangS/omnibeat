@@ -33,9 +33,9 @@ namespace OmniBeat
                 sequencer.Tempo = value;
             }
         }
-        public void setPitch(int note, int value, int step) 
+        public void setPitch(int note, int step, int value) 
         {
-            this.sequencer.setPitch(note, value,step);
+            this.sequencer.setPitch(note, step, value);
         }
 
         public WaveFormat WaveFormat

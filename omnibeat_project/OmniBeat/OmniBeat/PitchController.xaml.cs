@@ -43,14 +43,15 @@ namespace OmniBeat
             this.state = new Boolean[MainWindow.noteNum, maxCol, maxRow];
         }
 
-        public void setPatternSequencer(ref DrumPatternSampleProvider pSequencer)
+        public void setPatternSequencer(DrumPatternSampleProvider pSequencer)
         {
             this.dsp = pSequencer;
         }
 
         public void setPitch(int note, int value, int step)
         {
-            this.dsp.setPitch(note, value, step);
+            if( this.dsp != null)
+                this.dsp.setPitch(note, value, step);
         }
 
         internal void reloadState()

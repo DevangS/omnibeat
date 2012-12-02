@@ -23,40 +23,57 @@ namespace OmniBeat
     /// </summary>
     public partial class Menu : UserControl
     {
-        public bool drumBeats_isSet;
-        public bool delay_flag;
+        public bool isSynced;
+        public bool ioLock;
+        public bool saved;
         public Boolean[][] drumBeats;
-        //public Vector<    
+        private TempoController tempoController;
+        private String save1Location;
         
 
         public Menu()
         {
             InitializeComponent();
-            drumBeats_isSet = false;
-            delay_flag = false;
+            isSynced = false;
+            ioLock = false;
+            save1Location = Directory.GetCurrentDirectory() + "/save1";
         }
 
-        public void referenceDrumBeats(Boolean[][] beats)
+        public void sync(Boolean[][] beats, TempoController tempo)
         {
-            Console.WriteLine("\n***** referencing the drum beats*****\n");
-            drumBeats_isSet = true;
+            Console.WriteLine("\n***** inside sync*****\n");
+            isSynced = true;
             drumBeats = beats;
+            tempoController = tempo;
+        }
+
+        private void openButton_NewContact(object sender, NewContactEventArgs e)
+        {
+            Console.WriteLine("Open Button Pressed");
+            if (isSynced && !ioLock && saved)
+            {
+                ioLock = true;
+                saveToFile(save1Location);
+                saved = false;
+                ioLock = false;
+            }
         }
 
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
-            // Use timers.. 
             Console.WriteLine("Save Button Pressed");
-            if (drumBeats_isSet && !delay_flag)
+            if (isSynced && !ioLock)
             {
-                delay_flag = true;
-                
+                ioLock = true;
+                saveToFile(save1Location);
+                saved = true;
+                ioLock = false;
             }
         }
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Clear Button Pressed");
-   
+   /*
             //iterate over each dimensions/first array dereference
             for (int i = 0; i <= drumBeats.Rank; i++)
             {
@@ -67,8 +84,59 @@ namespace OmniBeat
                     drumBeats[i][j] = false;
                 }
             }
+    */
 
             //TODO: recolour all the beat buttons to be white in the GUI
+        }
+
+        private void loadFromFile(String filename)
+        {
+            string[] lines = System.IO.File.ReadAllLines(filename);
+          
+            tempoController.Tempo = Convert.ToInt32(lines[0]);
+
+            for (int i = 0; i < drumBeats.Rank; i++)
+            {
+                try
+                {
+                    //get all beats for this instrument
+                    string[] beats = lines[i].Split(' ');
+                    for (int j = 0; j < drumBeats.GetLength(i); j++)
+                    {
+                        //set the value of each beat in our application based on value in file
+                        drumBeats[i][j] = Convert.ToInt32(beats[j]) != 0;
+                    }
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine("Your save file did not have enough beats! " + e.Message);
+                }
+                
+            }
+        }
+        private void saveToFile(String filename)
+        {
+            /*
+            using (StreamWriter file = new StreamWriter(filename))
+            {
+                //write tempo to disk
+                file.WriteLine(tempoController.Tempo.ToString());
+
+                //write drumBeats to disk
+                for (int i = 0; i < drumBeats.Rank; i++)
+                {
+                    StringBuilder line = new StringBuilder();
+                    for (int j = 0; j < drumBeats.GetLength(i); j++)
+                    {
+                        int val = drumBeats[i][j] ? 1 : 0;
+                        line.Append(val).Append(" ");
+                    }
+                    file.WriteLine(line.ToString());
+                }
+                file.Close();
+            }
+
+            */
         }
     }
 }

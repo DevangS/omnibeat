@@ -13,6 +13,8 @@ namespace OmniBeat
         private int tempo;
         private int[,] pitch;
         private int samplesPerStep;
+        public static bool playClip = false;
+        private bool clipPlayed = false;
 
         public PatternSequencer(DrumPattern drumPattern, DrumKit kit)
         {
@@ -20,6 +22,13 @@ namespace OmniBeat
             this.drumPattern = drumPattern;
             this.Tempo = 120;
             this.pitch = new int[MainWindow.noteNum, drumPattern.Steps];
+            for (int i = 0; i < MainWindow.noteNum; i++)
+            {
+                for (int j = 0; j < drumPattern.Steps; j++)
+                {
+                    this.pitch[i, j] = 4;
+                }
+            }
         }
 
         public int Tempo
@@ -38,7 +47,7 @@ namespace OmniBeat
             }
         }
 
-        public void setPitch(int note, int value, int step)
+        public void setPitch(int note, int step, int value)
         {
             pitch[note, step] = value;
         }
@@ -49,6 +58,17 @@ namespace OmniBeat
 
         public IList<MusicSampleProvider> GetNextMixerInputs(int sampleCount)
         {
+            if (clipPlayed == true && currentStep == 7)
+            {
+                MainWindow.clearClips();
+                clipPlayed = false;
+            }
+            if (playClip == true && currentStep == 0)
+            {
+                playClip = false;
+                clipPlayed = true;
+            }
+
             List<MusicSampleProvider> mixerInputs = new List<MusicSampleProvider>();
             int samplePos = 0;
             if (newTempo)
@@ -91,6 +111,7 @@ namespace OmniBeat
             {
                 this.patternPosition -= drumPattern.Steps;
             }
+
             return mixerInputs;
         }
     }
