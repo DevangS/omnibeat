@@ -6,21 +6,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d" 
-        d:DesignHeight="1130" d:DesignWidth="1678">
+        d:DesignHeight="1130" d:DesignWidth="1678" FontFamily="Segoe UI">
 
     <Grid Name="soundClipsSelectGrid">
-        <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="Black" Loaded="vizLayer_Loaded"/>
-        <TextBlock Text="Please select 4 sound clips: " FontSize="45" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="567,39,567,0"></TextBlock>
-        <Button Name="kickTrimmed" Tag="0" Content="Kick" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="172,159,0,0" VerticalAlignment="Top" />
-        <Button Name="snareTrimmed" Tag="1" Content="Snare" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="172,303,0,0" VerticalAlignment="Top" />
-        <Button Name="closedHatsTrimmed" Tag="2" Content="Closed Hats" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="172,441,0,0" VerticalAlignment="Top" />
-        <Button Name="openHatsTrimmed" Content="Open Hats" Tag="3" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="172,581,0,0" VerticalAlignment="Top" />
-        <Button Name="cymbal" Tag="4" Content="Cymbal" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="172,710,0,0" VerticalAlignment="Top" />
-        <Button Name="everybody" Tag="5" Content="Everybody" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,303,0,0" VerticalAlignment="Top"/>
-        <Button Name="ohYeah" Tag="6" Content="Oh Yeah" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,581,0,0" VerticalAlignment="Top"/>
-        <Button Name="oneMoreTime" Tag="7" Content="One More Time" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,710,0,0" VerticalAlignment="Top"/>
-        <Button Name="shots" Tag="8" Content="Shots" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,159,0,0" VerticalAlignment="Top"/>
-        <Button Name="jerk" Tag="9" Content="Jerk" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,441,0,0" VerticalAlignment="Top"/>
-        <Button Name="SELECT" Content="SELECT" FontSize="45" Height="75" Width="1014" mt:MultitouchScreen.NewContact="SelectButton_NewContact" HorizontalAlignment="Left" Margin="172,838,0,0" VerticalAlignment="Top"/>
+        <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="PaleTurquoise" Loaded="vizLayer_Loaded"/>
+        <TextBlock Text="Please select 4 sound clips: " FontSize="64" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="274,51,272,0" TextAlignment="Center" Width="1132"></TextBlock>
+        <Button Name="kickTrimmed" Tag="0" Content="Kick" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="328,207,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="snareTrimmed" Tag="1" Content="Snare" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="328,355,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise" >
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="closedHatsTrimmed" Tag="2" Content="Closed Hats" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="328,489,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise" >
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="openHatsTrimmed" Content="Open Hats" Tag="3" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="328,629,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise" >
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="cymbal" Tag="4" Content="Cymbal" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="328,778,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise" >
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="everybody" Tag="5" Content="Everybody" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="842,355,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="ohYeah" Tag="6" Content="Oh Yeah" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="842,629,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="oneMoreTime" Tag="7" Content="One More Time" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="842,778,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="shots" Tag="8" Content="Shots" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="842,207,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="jerk" Tag="9" Content="Jerk" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="842,489,0,0" VerticalAlignment="Top" Background="White" Foreground="DarkTurquoise">
+        <Button.BitmapEffect>
+            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+        </Button.BitmapEffect>
+        </Button>
+        <Button Name="SELECT" Content="Select" FontSize="45" Height="75" Width="1014" mt:MultitouchScreen.NewContact="SelectButton_NewContact" HorizontalAlignment="Left" Margin="328,946,0,0" VerticalAlignment="Top" Foreground="White" Background="DarkTurquoise">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+            </Button.BitmapEffect>
+        </Button>
     </Grid>
 </UserControl>

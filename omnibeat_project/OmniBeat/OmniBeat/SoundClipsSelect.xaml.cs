@@ -75,13 +75,15 @@ namespace OmniBeat
                 if (numClips == 4) return;
                 clipSelected[index] = true;
                 numClips++;
-                b.Background = Brushes.DarkOliveGreen;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
             }
             else {
                 if (numClips == 0) return;
                 clipSelected[index] = false;
                 numClips--;
                 b.Background = Brushes.White;
+                b.Foreground = Brushes.DarkTurquoise;
             }
         }
 

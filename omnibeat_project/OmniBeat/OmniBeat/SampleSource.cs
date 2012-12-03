@@ -85,7 +85,6 @@ namespace OmniBeat
                     }
 
                     result[currentPitch] = new SampleSource(changedPitchData, sp.WaveFormat);
-                    pitch--;
                 }
                 return result;
             }

@@ -49,7 +49,7 @@ namespace OmniBeat
 
         public void Click(int col, int row, ref Boolean[,,] state)
         {
-            Brush color = Brushes.DarkSalmon;
+            Brush color = Brushes.DarkTurquoise;
             Brush white = Brushes.White;
             Brush black = Brushes.Black;
             Brush trans = Brushes.Transparent;
@@ -64,13 +64,13 @@ namespace OmniBeat
 
             grid[col, row].Opacity = 100;
             grid[col, row].Fill = color;
-            grid[col, row].Stroke = black;
+            grid[col, row].Stroke = color;
             state[BeatMaker.chosenButton, col, row] = true;
 
             for (int r = row + 1; r < maxRow; r++)
             {
-                grid[col, r].Opacity = 100;
-                grid[col, r].Fill = color;
+                grid[col, r].Opacity = 50;
+                grid[col, r].Fill = Brushes.MediumTurquoise;
                 grid[col, r].Stroke = trans;
                 state[BeatMaker.chosenButton, col, r] = false;
             }
