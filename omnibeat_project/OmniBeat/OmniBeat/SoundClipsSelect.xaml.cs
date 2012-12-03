@@ -24,9 +24,15 @@ namespace OmniBeat
     /// </summary>
     public partial class SoundClipsSelect : UserControl
     {
+        Boolean[] clipSelected;
+
         public SoundClipsSelect()
         {
             InitializeComponent();
+            for (int i = 0; i < 10; i++)
+            {
+                clipSelected[i] = false;
+            }
         }
 
         private void vizLayer_Loaded(object sender, RoutedEventArgs e)
