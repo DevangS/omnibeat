@@ -258,6 +258,11 @@
     <None Include="lib\thresholdSurfaceMap.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\background2.jpg" />
+    <Resource Include="images\bg.jpg" />
+    <Resource Include="images\webtexture.jpg" />
+    <Resource Include="images\lights.jpg" />
+    <Resource Include="images\background.jpg" />
     <Content Include="lib\AddIns\MultipleMice\MultipleMice.dll" />
     <Content Include="lib\AddIns\MultipleMice\MultipleMice.pdb" />
     <Content Include="lib\AddIns\TuioProvider\TUIO.dll" />

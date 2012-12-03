@@ -65,7 +65,7 @@ namespace OmniBeat
             grid[col, row].Opacity = 0;
             grid[col, row].Fill = color;
             grid[col, row].Stroke = black;
-            state[BeatMaker.chosenButton, col, row] = false;
+            state[BeatMaker.chosenButton, col, row] = true;
 
             for (int r = row + 1; r < maxRow; r++)
             {

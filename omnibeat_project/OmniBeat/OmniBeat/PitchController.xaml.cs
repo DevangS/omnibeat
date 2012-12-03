@@ -78,6 +78,7 @@ namespace OmniBeat
                     if (state[BeatMaker.chosenButton, col, row] == true)
                     {
                         PitchController.pitchSequence.Click(col, row, ref state);
+                        setPitch(BeatMaker.chosenButton, col, row);
                         break;
                     }
                 }

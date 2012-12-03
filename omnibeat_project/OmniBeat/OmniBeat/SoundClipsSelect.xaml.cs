@@ -24,7 +24,7 @@ namespace OmniBeat
     /// </summary>
     public partial class SoundClipsSelect : UserControl
     {
-        Boolean[] clipSelected;
+        Boolean[] clipSelected = new Boolean[10];
 
         public SoundClipsSelect()
         {

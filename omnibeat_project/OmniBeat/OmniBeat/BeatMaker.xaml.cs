@@ -234,7 +234,7 @@ namespace OmniBeat
 
         }
 
-        private void updateSoundClipButtons()
+        public void updateSoundClipButtons()
         {
             for (int i = 0; i < chosenClips.Length; i++)
             {
@@ -249,7 +249,7 @@ namespace OmniBeat
             }
         }
 
-        private void updateBeatButtons()
+        public void updateBeatButtons()
         {
             Boolean[] buttonStates = drumBeats[selectedKit];
             for (int i = 0; i < buttonStates.Length; i++)
@@ -325,10 +325,10 @@ namespace OmniBeat
         public void clearEverything() 
         {
             //iterate over each dimensions/first array dereference
-            for (int i = 0; i <= drumBeats.Rank; i++)
+            for (int i = 0; i <= drumBeats.GetLength(0); i++)
             {
                 //iterate over each element in the array at the ith dimension
-                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                for (int j = 0; j < BeatMaker.MAX_BEATS; j++)
                 {
                     //set the jth beat for the ith instrument to false
                     drumBeats[i][j] = false;
@@ -345,7 +345,7 @@ namespace OmniBeat
             }
 
             //reset tempo to 1
-            tempoController.Tempo = 1;
+            tempoController.Tempo = 4;
 
             //recolour GUI beat buttons
             updateBeatButtons();
