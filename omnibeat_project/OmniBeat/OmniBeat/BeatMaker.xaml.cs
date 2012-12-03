@@ -38,8 +38,8 @@ namespace OmniBeat
 
         //private int tempo;
         DrumKit kit = new DrumKit();
-        Boolean play = false;
-        Boolean stop = false;
+        public Boolean play = false;
+        public Boolean stop = false;
 
         public int selectedKit = 0;
         public static int chosenButton = 0;
@@ -73,7 +73,7 @@ namespace OmniBeat
             //clipIndices.Add(0); clipIndices.Add(1); clipIndices.Add(2); clipIndices.Add(3);
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
-            drumBeats = new Boolean[notes.Length*2][];
+            drumBeats = new Boolean[notes.Length][];
             chosenClips = new int[] {(int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat};
 
             //create an boolean array for each sample
@@ -156,8 +156,12 @@ namespace OmniBeat
 
         public void ChangeNotes(List<int> clipIndx)
         {
+            clipIndx.ToArray();
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                chosenClips[i] = clipIndx[i];
+            }
             this.clearEverything();
-            chosenClips = clipIndx.ToArray();
         }
 
         private void playClipButton_NewContact(object sender, NewContactEventArgs e)
@@ -317,7 +321,7 @@ namespace OmniBeat
 
         }
 
-        private void Play()
+        public void Play()
         {
             if (waveOut != null)
             {
@@ -327,13 +331,15 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
+            this.tempoController.updateTempo();
             this.pitchController.setPatternSequencer(this.patternSequencer);
+            this.pitchController.reloadState();
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();
         }
 
-        private void Stop()
+        public void Stop()
         {
             if (waveOut != null)
             {
@@ -351,7 +357,7 @@ namespace OmniBeat
         public void clearEverything() 
         {
             //iterate over each dimensions/first array dereference
-            for (int i = 0; i <= drumBeats.GetLength(0); i++)
+            for (int i = 0; i < drumBeats.GetLength(0); i++)
             {
                 //iterate over each element in the array at the ith dimension
                 for (int j = 0; j < BeatMaker.MAX_BEATS; j++)
@@ -373,8 +379,16 @@ namespace OmniBeat
             //reset tempo to 1
             tempoController.Tempo = 4;
 
-            //recolour GUI beat buttons
+            //reset pitch
+            this.pitchController.resetState();
+
+            //repaint gui
+            selectedKit = 0;
             updateBeatButtons();
+            updateSelectedClips();
+            updateSoundClipButtons();
+            this.tempoController.updateTempo();
+            this.pitchController.reloadState();
         }
     }
 }

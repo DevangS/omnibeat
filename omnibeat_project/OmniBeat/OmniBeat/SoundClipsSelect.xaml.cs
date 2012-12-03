@@ -34,7 +34,6 @@ namespace OmniBeat
             InitializeComponent();
             clipSelected = new Boolean[10];
             clipIndices = new List<int>();
-            ResetSelections();
             buttons = new Button[10];
             buttons[0] = this.kickTrimmed;
             buttons[1] = this.snareTrimmed;
@@ -46,6 +45,7 @@ namespace OmniBeat
             buttons[7] = this.oneMoreTime;
             buttons[8] = this.shots;
             buttons[9] = this.jerk;
+            ResetSelections();
         }
 
         private void vizLayer_Loaded(object sender, RoutedEventArgs e)
@@ -61,7 +61,7 @@ namespace OmniBeat
                 clipSelected[i] = false;
             }
             foreach (Button button in buttons) {
-                button.Background = Brushes.Transparent;
+                button.Background = Brushes.White;
             }
             numClips = 0;
         }
@@ -81,7 +81,7 @@ namespace OmniBeat
                 if (numClips == 0) return;
                 clipSelected[index] = false;
                 numClips--;
-                b.Background = Brushes.Transparent;
+                b.Background = Brushes.White;
             }
         }
 
