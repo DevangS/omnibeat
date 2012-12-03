@@ -49,28 +49,34 @@ namespace OmniBeat
 
         public void Click(int col, int row, ref Boolean[,,] state)
         {
-            for (int r = 0; r < maxRow; r++)
-            {
-                if (r != row)
-                {
-                    UnClick(col, r, ref state);
+            Brush color = Brushes.DarkSalmon;
+            Brush white = Brushes.White;
+            Brush black = Brushes.Black;
+            Brush trans = Brushes.Transparent;
 
-                }
-                else
-                {
-                    grid[col, row].Fill = new SolidColorBrush(Colors.DarkSalmon);
-                    grid[col, row].Opacity = 100;
-                    state[BeatMaker.chosenButton, col, row] = true;
-                }
+            for (int r = 0; r < row; r++)
+            {
+                grid[col, row].Opacity = 0;
+                grid[col, row].Fill = trans;
+                grid[col, row].Stroke = trans;
+                state[BeatMaker.chosenButton, col, row] = false;
+            }
+
+            grid[col, row].Opacity = 0;
+            grid[col, row].Fill = color;
+            grid[col, row].Stroke = black;
+            state[BeatMaker.chosenButton, col, row] = true;
+
+            for (int r = row + 1; r < maxRow; r++)
+            {
+                grid[col, r].Opacity = 100;
+                grid[col, row].Fill = color;
+                grid[col, r].Stroke = trans;
+                state[BeatMaker.chosenButton, col, row] = false;
             }
 
         }
 
-        public void UnClick(int col, int row, ref Boolean[,,] state)
-        {
-            grid[col, row].Fill = new SolidColorBrush(Colors.White);
-            grid[col, row].Opacity = 0;
-            state[BeatMaker.chosenButton, col, row] = false;
-        }
+
     }
 }

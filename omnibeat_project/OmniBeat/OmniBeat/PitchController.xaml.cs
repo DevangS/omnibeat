@@ -24,8 +24,8 @@ namespace OmniBeat
         public const int maxRow = 9;
         public const int maxCol = 8;
         private static PitchSequence pitchSequence;
-        DrumPatternSampleProvider dsp;
-        Boolean[,,] state;
+        public DrumPatternSampleProvider dsp;
+        public Boolean[,,] state;
 
         public PitchController()
         {
@@ -78,10 +78,8 @@ namespace OmniBeat
                     if (state[BeatMaker.chosenButton, col, row] == true)
                     {
                         PitchController.pitchSequence.Click(col, row, ref state);
-                    }
-                    else
-                    {
-                        PitchController.pitchSequence.UnClick(col, row, ref state);
+                        setPitch(BeatMaker.chosenButton, col, row);
+                        break;
                     }
                 }
             }

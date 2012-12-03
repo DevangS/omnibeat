@@ -51,6 +51,10 @@ namespace OmniBeat
             {
                 ioLock = true;
                 loadFromFile(save1Location);
+                BeatMaker.updateSelectedClips();
+                BeatMaker.updateBeatButtons();
+                BeatMaker.updateSoundClipButtons();
+                BeatMaker.tempoController.updateTempo();
                 saved = false;
                 ioLock = false;
             }
@@ -85,20 +89,21 @@ namespace OmniBeat
             BeatMaker.chosenButton = Convert.ToInt32(lines[1]);
 
             //read chosenClips
+            String[] clips = lines[2].Split(' ');
             for (int i = 0; i < BeatMaker.chosenClips.Length; i++)
             {
-                BeatMaker.chosenClips[i] = Convert.ToInt32(lines[i + 2]);
+                BeatMaker.chosenClips[i] = Convert.ToInt32(clips[i]);
             }
 
             //read drumbeats
-            for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
+            for (int i = 0; i < BeatMaker.drumBeats.GetLength(0); i++)
 
             {
                 try
                 {
                     //get all beats for this instrument
-                    string[] beats = lines[i].Split(' ');
-                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(i); j++)
+                    string[] beats = lines[i + 2 + BeatMaker.chosenClips.Length].Split(' ');
+                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(0); j++)
                     {
                         //set the value of each beat in our application based on value in file
                         BeatMaker.drumBeats[i][j] = Convert.ToInt32(beats[j]) != 0;
@@ -107,6 +112,43 @@ namespace OmniBeat
                 catch (IndexOutOfRangeException e)
                 {
                     Console.WriteLine("Your save file did not have enough beats! " + e.Message);
+                }
+            }
+
+            int nextLine = 2 + BeatMaker.chosenClips.Length + BeatMaker.drumBeats.GetLength(0);
+
+            //read drum pattern
+            for (int note = 0; note < BeatMaker.pattern.Notes; note++)
+            {
+                String[] stepsArr = lines[nextLine + note].Split(' ');
+                Console.Write((nextLine + note));
+                Console.Write(lines[nextLine + note]);
+                for (int step = 0; step < stepsArr.Length; step++)
+                {
+                      BeatMaker.pattern[note, step] = Convert.ToByte(stepsArr[step]);
+
+                }
+            }
+
+            nextLine = 2 + BeatMaker.chosenClips.Length + BeatMaker.drumBeats.GetLength(0) + BeatMaker.pattern.Notes;
+
+            //read pitch
+            for (int note = 0; note < BeatMaker.pitchController.state.GetLength(0); note++)
+            {
+                Console.Write(lines[nextLine + note]);
+
+                Console.Write((nextLine + note));
+                for (int col = 0; col < BeatMaker.pitchController.state.GetLength(1); col++)
+                {
+
+                    Console.Write((nextLine + note + col));
+                    String[] rows = lines[note + nextLine + col].Split(' ');
+                    Console.Write(lines[nextLine + note + col]);
+                    for (int row = 0; row < rows.Length; row++)
+                    {
+                        bool b = Convert.ToInt32(rows[row]) == 1 ? true : false;
+                        BeatMaker.pitchController.state[note, col, row] = Convert.ToBoolean(b);
+                    }
                 }
             }
         }
@@ -130,17 +172,44 @@ namespace OmniBeat
                 file.WriteLine(line.ToString());
 
                 //write drumBeats to disk
-                for (int i = 0; i < BeatMaker.drumBeats.Rank; i++)
+                for (int i = 0; i < BeatMaker.drumBeats.GetLength(0); i++)
                 {
                     line = new StringBuilder();
-                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(i); j++)
+                    for (int j = 0; j < BeatMaker.drumBeats.GetLength(0); j++)
                     {
                         int val = BeatMaker.drumBeats[i][j] ? 1 : 0;
                         line.Append(val).Append(" ");
                     }
                     file.WriteLine(line.ToString());
                 }
-                file.Close();
+
+                //write drum pattern
+                for (int note = 0; note < BeatMaker.pattern.Notes; note++)
+                {
+                    line = new StringBuilder();
+                    for (int step = 0; step < BeatMaker.pattern.Steps; step++)
+                    {
+                        int val = (int) BeatMaker.pattern[note, step];
+                        line.Append(val).Append(" ");
+                    }
+                    file.WriteLine(line.ToString());
+                }
+
+                //write pitch
+                for (int note = 0; note < BeatMaker.pitchController.state.GetLength(0); note++)
+                {
+                    file.WriteLine(note.ToString());
+                    for (int col = 0; col < BeatMaker.pitchController.state.GetLength(1); col++)
+                    {
+                        line = new StringBuilder();
+                        for (int row = 0; row < BeatMaker.pitchController.state.GetLength(2); row++)
+                        {
+                            int val = BeatMaker.pitchController.state[note, col, row] ? 1 : 0;
+                            line = line.Append(val.ToString()).Append(' ');
+                        }
+                        file.WriteLine(line.ToString());
+                    }
+                }
             }
         }
     }
