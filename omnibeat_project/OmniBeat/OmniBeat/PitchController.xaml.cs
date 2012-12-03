@@ -24,8 +24,8 @@ namespace OmniBeat
         public const int maxRow = 9;
         public const int maxCol = 8;
         private static PitchSequence pitchSequence;
-        DrumPatternSampleProvider dsp;
-        Boolean[,,] state;
+        public DrumPatternSampleProvider dsp;
+        public Boolean[,,] state;
 
         public PitchController()
         {
