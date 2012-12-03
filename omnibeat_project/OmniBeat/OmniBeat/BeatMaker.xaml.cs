@@ -48,7 +48,7 @@ namespace OmniBeat
         public string[] notes = {"Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
                                   "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk", 
                                   "Kick", "Snare", "Closed Hat", "Open Hat", "Cymbal",
-                                  "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk" };
+                                  "Everybody", "Oh Yeah", "OneMoreTime", "Shots", "Jerk"  };
         public enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
                                   Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
@@ -168,6 +168,8 @@ namespace OmniBeat
         {
             Console.WriteLine("play clip");
             Button b = (Button)sender;
+            b.Background = Brushes.DarkTurquoise;
+            b.Foreground = Brushes.White;
             int x = int.Parse(b.Tag.ToString());
             pattern[x+10, 0] = 127;
             PatternSequencer.playClip = true;
@@ -319,6 +321,13 @@ namespace OmniBeat
         private void vizLayer_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void button_ContactRemoved(object sender, ContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.White;
+            b.Foreground = Brushes.DarkTurquoise;
         }
 
         public void Play()

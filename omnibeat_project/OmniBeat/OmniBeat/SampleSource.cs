@@ -59,7 +59,7 @@ namespace OmniBeat
                     float[] changedPitchData = new float[sampleData.Length/pitch];
                     for (int j = 0, i = 0; i  < sampleData.Length && j < changedPitchData.Length; i++)
                     {
-                        if (i % pitch == 0 && j != 0)
+                        if (i % pitch == 0)
                         {
                             changedPitchData[j] = sampleData[i];
                             j++;
@@ -78,7 +78,7 @@ namespace OmniBeat
                     {
                         changedPitchData[j] = sampleData[i];
                                         
-                        if (j % pitch == 0 && j != 0)
+                        if (j % pitch == 0)
                         {
                             i++;
                         }

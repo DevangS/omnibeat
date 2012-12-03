@@ -10,12 +10,12 @@
              d:DesignHeight="75" d:DesignWidth="800">
     <Grid Height="75" Width="800">
 
-        <Button Name="decreaseTempoButton" Tag="0" Content="-" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="0,0,725,0" Background="White" Foreground="DarkTurquoise">
+        <Button Name="decreaseTempoButton" Tag="0" Content="-" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" mt:MultitouchScreen.ContactRemoved="button_ContactRemoved" Margin="0,0,725,0" Background="White" Foreground="DarkTurquoise">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
             </Button.BitmapEffect>
         </Button>
-        <Button Name="increaseTempoButton" Tag="1" Content="+" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact" Margin="725,0,0,0" Background="White" Foreground="DarkTurquoise">
+        <Button Name="increaseTempoButton" Tag="1" Content="+" Height="75" Width="75" FontSize="50" mt:MultitouchScreen.NewContact="tempoButton_NewContact"  mt:MultitouchScreen.ContactRemoved="button_ContactRemoved" Margin="725,0,0,0" Background="White" Foreground="DarkTurquoise">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
             </Button.BitmapEffect>

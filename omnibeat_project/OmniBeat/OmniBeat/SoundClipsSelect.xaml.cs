@@ -104,6 +104,8 @@ namespace OmniBeat
 
             Switcher.mainWindow.beatMaker.ChangeNotes(clipIndices);
             Switcher.Switch(Switcher.mainWindow.beatMaker);
+            Switcher.mainWindow.beatMaker.soundClipsSelectButton.Background = Brushes.White;
+            Switcher.mainWindow.beatMaker.soundClipsSelectButton.Foreground = Brushes.DarkTurquoise;
         }
     }
 }

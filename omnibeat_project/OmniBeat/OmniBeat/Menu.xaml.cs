@@ -26,6 +26,7 @@ namespace OmniBeat
         public bool isSynced;
         public bool ioLock;
         public bool saved;
+        public bool cleared;
         private String save1Location;
         private BeatMaker BeatMaker;
 
@@ -47,6 +48,7 @@ namespace OmniBeat
         private void openButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Open Button Pressed");
+            Button b = (Button)sender;
             if (isSynced && !ioLock && saved)
             {
                 if (BeatMaker.play)
@@ -58,7 +60,8 @@ namespace OmniBeat
                 BeatMaker.updateBeatButtons();
                 BeatMaker.updateSoundClipButtons();
                 BeatMaker.tempoController.updateTempo();
-
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 saved = false;
                 ioLock = false;
 
@@ -69,12 +72,15 @@ namespace OmniBeat
         private void saveButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Save Button Pressed");
+            Button b = (Button)sender;
             if (isSynced && !ioLock)
             {
                 ioLock = true;
                 if (BeatMaker.play)
                     BeatMaker.Stop();
                 saveToFile(save1Location);
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 saved = true;
                 ioLock = false;
 
@@ -85,6 +91,9 @@ namespace OmniBeat
         private void clearButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("Clear Button Pressed");
+            Button b = (Button)sender;
+            b.Background = Brushes.DarkTurquoise;
+            b.Foreground = Brushes.White;
             BeatMaker.clearEverything();
         }
 
@@ -153,6 +162,13 @@ namespace OmniBeat
                     }
                 }
             }
+        }
+
+        private void button_ContactRemoved(object sender, ContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.White;
+            b.Foreground = Brushes.DarkTurquoise;
         }
 
         private void saveToFile(String filename)

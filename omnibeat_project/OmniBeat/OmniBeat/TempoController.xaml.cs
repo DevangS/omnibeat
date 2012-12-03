@@ -57,6 +57,8 @@ namespace OmniBeat
             if (tempo > 0  && tempo < MAX_TEMPO)
             {
                 incDec = int.Parse(b.Tag.ToString());
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
 
                 if (incDec == 0)
                 {
@@ -69,6 +71,13 @@ namespace OmniBeat
 
                 updateTempo();
             }
+        }
+
+        private void button_ContactRemoved(object sender, ContactEventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = Brushes.White;
+            b.Foreground = Brushes.DarkTurquoise;
         }
 
         public void updateTempo()
