@@ -136,7 +136,7 @@ namespace OmniBeat
         //it too.
 
         // UPDATE NAMES OF SOUDN CLIP BUTTONS
-        private void updateSelectedClips()
+        public void updateSelectedClips()
         {
             for (int i = 0; i < chosenClips.Length; i++)
             {

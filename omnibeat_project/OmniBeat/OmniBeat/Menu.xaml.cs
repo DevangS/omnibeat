@@ -51,6 +51,10 @@ namespace OmniBeat
             {
                 ioLock = true;
                 loadFromFile(save1Location);
+                BeatMaker.updateSelectedClips();
+                BeatMaker.updateBeatButtons();
+                BeatMaker.updateSoundClipButtons();
+                BeatMaker.tempoController.updateTempo();
                 saved = false;
                 ioLock = false;
             }
