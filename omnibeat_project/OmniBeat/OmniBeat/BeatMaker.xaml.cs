@@ -33,6 +33,8 @@ namespace OmniBeat
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
         public PitchController pitchController;
+        //public List<int> clipIndices;
+
         //private int tempo;
         DrumKit kit = new DrumKit();
         Boolean play = false;
@@ -49,7 +51,8 @@ namespace OmniBeat
         public enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
                                   Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
-        public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        //public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        public int [] chosenClips; // = cli
 
         public Boolean[][] drumBeats;
         
@@ -65,12 +68,12 @@ namespace OmniBeat
             Menu.sync(this);
 
             MultitouchScreen.AllowNonContactEvents = true;
-
+            //clipIndices = new List<int>();
+            //clipIndices.Add(0); clipIndices.Add(1); clipIndices.Add(2); clipIndices.Add(3);
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
             drumBeats = new Boolean[notes.Length*2][];
             chosenClips = new int[] {(int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat};
-
 
             //create an boolean array for each sample
             for (int i = 0; i < notes.Length; i++)
@@ -150,6 +153,12 @@ namespace OmniBeat
             selectedKit = chosenClips[0];
         }
 
+        public void ChangeNotes(List<int> clipIndx)
+        {
+            this.clearEverything();
+            chosenClips = clipIndx.ToArray();
+        }
+
         private void playClipButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("play clip");
@@ -212,6 +221,7 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
             b.Background = Brushes.OrangeRed;
+            Switcher.mainWindow.clipSelector.ResetSelections();
             Switcher.Switch(Switcher.mainWindow.clipSelector);
         }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows;
+using System.Windows;       
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -24,15 +24,28 @@ namespace OmniBeat
     /// </summary>
     public partial class SoundClipsSelect : UserControl
     {
-        Boolean[] clipSelected;
+        public Boolean[] clipSelected;
+        public Button[] buttons;
+        public int numClips;
+        public List<int> clipIndices;
 
         public SoundClipsSelect()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
-            {
-                clipSelected[i] = false;
-            }
+            clipSelected = new Boolean[10];
+            clipIndices = new List<int>();
+            ResetSelections();
+            buttons = new Button[10];
+            buttons[0] = this.kickTrimmed;
+            buttons[1] = this.snareTrimmed;
+            buttons[2] = this.closedHatsTrimmed;
+            buttons[3] = this.openHatsTrimmed;
+            buttons[4] = this.cymbal;
+            buttons[5] = this.everybody;
+            buttons[6] = this.ohYeah;
+            buttons[7] = this.oneMoreTime;
+            buttons[8] = this.shots;
+            buttons[9] = this.jerk;
         }
 
         private void vizLayer_Loaded(object sender, RoutedEventArgs e)
@@ -40,14 +53,54 @@ namespace OmniBeat
 
         }
 
+        public void ResetSelections()
+        {
+            clipIndices.Clear();
+            for (int i = 0; i < 10; i++)
+            {
+                clipSelected[i] = false;
+            }
+            foreach (Button button in buttons) {
+                button.Background = Brushes.Transparent;
+            }
+            numClips = 0;
+        }
+
         private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
-            Console.WriteLine("Pressed the button" + ((Button)sender).Name.ToString());
+            Button b = (Button)sender;
+            Console.WriteLine("Pressed the button" + b.Name.ToString());
+            int index = Convert.ToInt32(b.Tag);
+            if (!clipSelected[index]) {
+                if (numClips == 4) return;
+                clipSelected[index] = true;
+                numClips++;
+                b.Background = Brushes.DarkOliveGreen;
+            }
+            else {
+                if (numClips == 0) return;
+                clipSelected[index] = false;
+                numClips--;
+                b.Background = Brushes.Transparent;
+            }
         }
 
         private void SelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("PRESSED SELECT BUTTON");
+            if (numClips != 4) return;
+
+            for(int i = 0; i < 10; i++) {
+                if (clipSelected[i]) clipIndices.Add(i);
+            }
+
+            if (clipIndices.Count != 4)
+            {
+                clipIndices.Clear();
+                return;
+            }
+
+            Switcher.mainWindow.beatMaker.ChangeNotes(clipIndices);
             Switcher.Switch(Switcher.mainWindow.beatMaker);
         }
     }
