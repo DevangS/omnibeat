@@ -1,14 +1,12 @@
-<Page x:Class="OmniBeat.SoundClipsSelect"
+<UserControl x:Class="OmniBeat.SoundClipsSelect"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mt="http://schemas.multitouch.com/Multitouch/2008/04"
       xmlns:space="clr-namespace:InteractiveSpace.SDK.GUI;assembly=InteractiveSpace.SDK"
-      xmlns:omni="clr-namespace:OmniBeat"
-      mc:Ignorable="d" 
-      d:DesignHeight="1120" d:DesignWidth="1678"
-	Title="SoundClipsSelect" Height="1120" Width="1678">
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        mc:Ignorable="d" 
+        d:DesignHeight="1130" d:DesignWidth="1678">
 
     <Grid Name="soundClipsSelectGrid">
         <space:TrackingVizLayer x:Name="vizLayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsFingerVisible="True" Background="Black" Loaded="vizLayer_Loaded"/>
@@ -23,5 +21,6 @@
         <Button Name="oneMoreTime" Tag="7" Content="One More Time" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,710,0,0" VerticalAlignment="Top"/>
         <Button Name="shots" Tag="8" Content="Shots" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,159,0,0" VerticalAlignment="Top"/>
         <Button Name="jerk" Tag="9" Content="Jerk" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,441,0,0" VerticalAlignment="Top"/>
+        <Button Name="SELECT" Tag="10" Content="SELECT" FontSize="45" Height="75" Width="1014" mt:MultitouchScreen.NewContact="SelectButton_NewContact" HorizontalAlignment="Left" Margin="172,838,0,0" VerticalAlignment="Top"/>
     </Grid>
-</Page>
+</UserControl>

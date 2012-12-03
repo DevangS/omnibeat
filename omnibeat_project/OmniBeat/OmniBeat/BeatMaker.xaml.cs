@@ -62,15 +62,7 @@ namespace OmniBeat
         {
             InitializeComponent();
 
-            
             Menu.sync(this);
-
-            // *************************************************************
-            // Uses the Person class in the Window code-behind
-            
-            //Person person = new Person();
-            //this.DataContext = person;
-            // *************************************************************
 
             MultitouchScreen.AllowNonContactEvents = true;
 
@@ -220,7 +212,7 @@ namespace OmniBeat
         {
             Button b = (Button)sender;
             b.Background = Brushes.OrangeRed;
-
+            Switcher.Switch(Switcher.mainWindow.clipSelector);
         }
 
         private void instrumentSelectButton_NewContact(object sender, NewContactEventArgs e)

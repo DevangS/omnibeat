@@ -24,6 +24,8 @@ namespace OmniBeat
     /// </summary>
     public partial class MainWindow : Multitouch.Framework.WPF.Controls.Window
     {
+        public BeatMaker beatMaker = new BeatMaker();
+        public SoundClipsSelect clipSelector = new SoundClipsSelect();
         /*
         public static int MAX_BEATS = 8;
         public InteractiveSpaceProvider spaceProvider;
@@ -62,7 +64,7 @@ namespace OmniBeat
             InitializeComponent();
 
             Switcher.mainWindow = this;
-            Switcher.Switch(new BeatMaker());
+            Switcher.Switch(this.beatMaker);
             /*
             Menu.sync(this);
 
