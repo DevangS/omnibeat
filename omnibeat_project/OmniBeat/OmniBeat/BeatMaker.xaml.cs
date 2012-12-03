@@ -16,6 +16,7 @@ using InteractiveSpace.SDK;
 using InteractiveSpace.SDK.DLL;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
+using System.Windows.Media.Effects;
 
 
 namespace OmniBeat
@@ -186,10 +187,12 @@ namespace OmniBeat
         private void playButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
+
             play = !play;
             if (play)
             {
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("Playing");
                 Play();
                 //stopButton.Background = Brushes.White;
@@ -198,6 +201,7 @@ namespace OmniBeat
             else
             {
                 b.Background = Brushes.White;
+                b.Foreground = Brushes.DarkTurquoise;
                 Stop();
             }
         }
@@ -208,10 +212,12 @@ namespace OmniBeat
             stop = !stop;
             if (stop)
             {
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("Stop");
                 Stop();
                 playButton.Background = Brushes.White;
+                playButton.Foreground = Brushes.DarkTurquoise;
                 play = false;
             }
             else b.Background = Brushes.White;
@@ -220,8 +226,8 @@ namespace OmniBeat
         private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            b.Background = Brushes.OrangeRed;
-            Switcher.mainWindow.clipSelector.ResetSelections();
+            b.Background = Brushes.DarkTurquoise;
+            b.Foreground = Brushes.White;
             Switcher.Switch(Switcher.mainWindow.clipSelector);
         }
 
@@ -231,6 +237,7 @@ namespace OmniBeat
             
             //change prev selected back to whtie 
             instrumentButtonArr[chosenButton].Background = Brushes.White;
+            instrumentButtonArr[chosenButton].Foreground = Brushes.DarkTurquoise;
             chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
 
@@ -250,11 +257,13 @@ namespace OmniBeat
             {
                 if (i == chosenButton)
                 {
-                    instrumentButtonArr[i].Background = Brushes.OrangeRed;
+                    instrumentButtonArr[i].Background = Brushes.DarkTurquoise;
+                    instrumentButtonArr[i].Foreground = Brushes.White;
                 }
                 else
                 {
                     instrumentButtonArr[i].Background = Brushes.White;
+                    instrumentButtonArr[i].Foreground = Brushes.DarkTurquoise;
                 }
             }
         }
@@ -265,9 +274,15 @@ namespace OmniBeat
             for (int i = 0; i < buttonStates.Length; i++)
             {
                 if (buttonStates[i])
-                    beatButtonArr[i].Background = Brushes.OrangeRed;
+                {
+                    beatButtonArr[i].Background = Brushes.DarkTurquoise;
+                    beatButtonArr[i].Foreground = Brushes.White;
+                }
                 else
+                {
                     beatButtonArr[i].Background = Brushes.White;
+                    beatButtonArr[i].Foreground = Brushes.DarkTurquoise;
+                }
             }
         }
 
@@ -281,7 +296,8 @@ namespace OmniBeat
             if (currInstrument[index])
             {
                 pattern[selectedKit, index] = 127;
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("button " + index);
             }
             else
