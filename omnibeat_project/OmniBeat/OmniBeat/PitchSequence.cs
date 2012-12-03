@@ -38,9 +38,9 @@ namespace OmniBeat
 
 
             // Populate the grid
-            for (int row = 0; row < 9; row++)
+            for (int row = 0; row < maxRow; row++)
             {
-                for (int col = 0; col < 8; col++)
+                for (int col = 0; col < maxCol; col++)
                 {
                     grid[col, row] = pgrid[col, row];
                 }
@@ -56,23 +56,23 @@ namespace OmniBeat
 
             for (int r = 0; r < row; r++)
             {
-                grid[col, row].Opacity = 0;
-                grid[col, row].Fill = trans;
-                grid[col, row].Stroke = trans;
-                state[BeatMaker.chosenButton, col, row] = false;
+                grid[col, r].Opacity = 0;
+                grid[col, r].Fill = trans;
+                grid[col, r].Stroke = trans;
+                state[BeatMaker.chosenButton, col, r] = false;
             }
 
-            grid[col, row].Opacity = 0;
+            grid[col, row].Opacity = 100;
             grid[col, row].Fill = color;
             grid[col, row].Stroke = black;
-            state[BeatMaker.chosenButton, col, row] = false;
+            state[BeatMaker.chosenButton, col, row] = true;
 
             for (int r = row + 1; r < maxRow; r++)
             {
                 grid[col, r].Opacity = 100;
-                grid[col, row].Fill = color;
+                grid[col, r].Fill = color;
                 grid[col, r].Stroke = trans;
-                state[BeatMaker.chosenButton, col, row] = false;
+                state[BeatMaker.chosenButton, col, r] = false;
             }
 
         }

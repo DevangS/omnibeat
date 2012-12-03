@@ -21,6 +21,6 @@
         <Button Name="oneMoreTime" Tag="7" Content="One More Time" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,710,0,0" VerticalAlignment="Top"/>
         <Button Name="shots" Tag="8" Content="Shots" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,159,0,0" VerticalAlignment="Top"/>
         <Button Name="jerk" Tag="9" Content="Jerk" FontSize="45" Height="75" Width="500" mt:MultitouchScreen.NewContact="soundClipsSelectButton_NewContact" HorizontalAlignment="Left" Margin="686,441,0,0" VerticalAlignment="Top"/>
-        <Button Name="SELECT" Tag="10" Content="SELECT" FontSize="45" Height="75" Width="1014" mt:MultitouchScreen.NewContact="SelectButton_NewContact" HorizontalAlignment="Left" Margin="172,838,0,0" VerticalAlignment="Top"/>
+        <Button Name="SELECT" Content="SELECT" FontSize="45" Height="75" Width="1014" mt:MultitouchScreen.NewContact="SelectButton_NewContact" HorizontalAlignment="Left" Margin="172,838,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

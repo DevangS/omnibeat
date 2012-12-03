@@ -8,8 +8,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="990">
     <Grid Height="100" Width="990">
-        <Button Name="saveButton" Content="Save" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="saveButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White"/>
-        <Button Name="openButton" Content="Open" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="openButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="360,0,0,0" Background="White"/>
-        <Button Name="clearButton" Content="Clear" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="clearButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="720,0,0,0" Background="White"/>
+        <Button Name="saveButton" Content="Save" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="saveButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White" Foreground="DarkTurquoise">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+            </Button.BitmapEffect>
+        </Button>
+        <Button Name="openButton" Content="Open" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="openButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="360,0,0,0" Background="White" Foreground="DarkTurquoise">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+            </Button.BitmapEffect>
+        </Button>
+        <Button Name="clearButton" Content="Clear" Height="75" Width="270" FontSize="45" mt:MultitouchScreen.NewContact="clearButton_NewContact" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="720,0,0,0" Background="White" Foreground="DarkTurquoise">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="1" Opacity="0.5"/>
+            </Button.BitmapEffect>
+        </Button>
     </Grid>
 </UserControl>

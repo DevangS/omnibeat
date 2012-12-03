@@ -41,6 +41,11 @@ namespace OmniBeat
                 {rectangle70, rectangle71, rectangle72, rectangle73, rectangle74, rectangle75, rectangle76, rectangle77, rectangle78} };
             PitchController.pitchSequence = new PitchSequence(pitchGrid);
             this.state = new Boolean[BeatMaker.noteNum, maxCol, maxRow];
+            this.resetState();
+
+        }
+        public void resetState()
+        {
             for (int note = 0; note < BeatMaker.noteNum; note++)
             {
                 for (int col = 0; col < maxCol; col++)
@@ -54,8 +59,8 @@ namespace OmniBeat
                     }
                 }
             }
-
         }
+
 
         public void setPatternSequencer(DrumPatternSampleProvider pSequencer)
         {
@@ -78,6 +83,7 @@ namespace OmniBeat
                     if (state[BeatMaker.chosenButton, col, row] == true)
                     {
                         PitchController.pitchSequence.Click(col, row, ref state);
+                        setPitch(BeatMaker.chosenButton, col, row);
                         break;
                     }
                 }

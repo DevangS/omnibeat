@@ -16,6 +16,7 @@ using InteractiveSpace.SDK;
 using InteractiveSpace.SDK.DLL;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
+using System.Windows.Media.Effects;
 
 
 namespace OmniBeat
@@ -33,10 +34,12 @@ namespace OmniBeat
         public DrumPatternSampleProvider patternSequencer;
         public TempoController tempoController;
         public PitchController pitchController;
+        //public List<int> clipIndices;
+
         //private int tempo;
         DrumKit kit = new DrumKit();
-        Boolean play = false;
-        Boolean stop = false;
+        public Boolean play = false;
+        public Boolean stop = false;
 
         public int selectedKit = 0;
         public static int chosenButton = 0;
@@ -49,7 +52,8 @@ namespace OmniBeat
         public enum noteName {Kick, Snare, ClosedHat, OpenHat, Cymbal,
                                   Everybody, OhYeah, OneMoreTime, Shots, Jerk};
         public static int noteNum = 20;
-        public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        //public int[] chosenClips = new int[] { (int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat }; 
+        public int [] chosenClips; // = cli
 
         public Boolean[][] drumBeats;
         
@@ -65,12 +69,12 @@ namespace OmniBeat
             Menu.sync(this);
 
             MultitouchScreen.AllowNonContactEvents = true;
-
+            //clipIndices = new List<int>();
+            //clipIndices.Add(0); clipIndices.Add(1); clipIndices.Add(2); clipIndices.Add(3);
             spaceProvider = new InteractiveSpaceProviderDLL();
             spaceProvider.Connect();
-            drumBeats = new Boolean[notes.Length*2][];
+            drumBeats = new Boolean[notes.Length][];
             chosenClips = new int[] {(int)noteName.Kick, (int)noteName.Snare, (int)noteName.ClosedHat, (int)noteName.OpenHat};
-
 
             //create an boolean array for each sample
             for (int i = 0; i < notes.Length; i++)
@@ -150,6 +154,16 @@ namespace OmniBeat
             selectedKit = chosenClips[0];
         }
 
+        public void ChangeNotes(List<int> clipIndx)
+        {
+            clipIndx.ToArray();
+            for (int i = 0; i < chosenClips.Length; i++)
+            {
+                chosenClips[i] = clipIndx[i];
+            }
+            this.clearEverything();
+        }
+
         private void playClipButton_NewContact(object sender, NewContactEventArgs e)
         {
             Console.WriteLine("play clip");
@@ -177,10 +191,12 @@ namespace OmniBeat
         private void playButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
+
             play = !play;
             if (play)
             {
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("Playing");
                 Play();
                 //stopButton.Background = Brushes.White;
@@ -189,6 +205,7 @@ namespace OmniBeat
             else
             {
                 b.Background = Brushes.White;
+                b.Foreground = Brushes.DarkTurquoise;
                 Stop();
             }
         }
@@ -199,10 +216,12 @@ namespace OmniBeat
             stop = !stop;
             if (stop)
             {
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("Stop");
                 Stop();
                 playButton.Background = Brushes.White;
+                playButton.Foreground = Brushes.DarkTurquoise;
                 play = false;
             }
             else b.Background = Brushes.White;
@@ -211,7 +230,8 @@ namespace OmniBeat
         private void soundClipsSelectButton_NewContact(object sender, NewContactEventArgs e)
         {
             Button b = (Button)sender;
-            b.Background = Brushes.OrangeRed;
+            b.Background = Brushes.DarkTurquoise;
+            b.Foreground = Brushes.White;
             Switcher.Switch(Switcher.mainWindow.clipSelector);
         }
 
@@ -221,6 +241,7 @@ namespace OmniBeat
             
             //change prev selected back to whtie 
             instrumentButtonArr[chosenButton].Background = Brushes.White;
+            instrumentButtonArr[chosenButton].Foreground = Brushes.DarkTurquoise;
             chosenButton = int.Parse( b.Name[16].ToString() ) ;
             selectedKit = int.Parse(b.Tag.ToString());
 
@@ -234,30 +255,38 @@ namespace OmniBeat
 
         }
 
-        private void updateSoundClipButtons()
+        public void updateSoundClipButtons()
         {
             for (int i = 0; i < chosenClips.Length; i++)
             {
                 if (i == chosenButton)
                 {
-                    instrumentButtonArr[i].Background = Brushes.OrangeRed;
+                    instrumentButtonArr[i].Background = Brushes.DarkTurquoise;
+                    instrumentButtonArr[i].Foreground = Brushes.White;
                 }
                 else
                 {
                     instrumentButtonArr[i].Background = Brushes.White;
+                    instrumentButtonArr[i].Foreground = Brushes.DarkTurquoise;
                 }
             }
         }
 
-        private void updateBeatButtons()
+        public void updateBeatButtons()
         {
             Boolean[] buttonStates = drumBeats[selectedKit];
             for (int i = 0; i < buttonStates.Length; i++)
             {
                 if (buttonStates[i])
-                    beatButtonArr[i].Background = Brushes.OrangeRed;
+                {
+                    beatButtonArr[i].Background = Brushes.DarkTurquoise;
+                    beatButtonArr[i].Foreground = Brushes.White;
+                }
                 else
+                {
                     beatButtonArr[i].Background = Brushes.White;
+                    beatButtonArr[i].Foreground = Brushes.DarkTurquoise;
+                }
             }
         }
 
@@ -271,7 +300,8 @@ namespace OmniBeat
             if (currInstrument[index])
             {
                 pattern[selectedKit, index] = 127;
-                b.Background = Brushes.OrangeRed;
+                b.Background = Brushes.DarkTurquoise;
+                b.Foreground = Brushes.White;
                 Console.WriteLine("button " + index);
             }
             else
@@ -291,7 +321,7 @@ namespace OmniBeat
 
         }
 
-        private void Play()
+        public void Play()
         {
             if (waveOut != null)
             {
@@ -301,13 +331,15 @@ namespace OmniBeat
             this.patternSequencer = new DrumPatternSampleProvider(pattern);
             //this.patternSequencer.Tempo = tempo;
             this.tempoController.setPatternSequencer(ref this.patternSequencer);
+            this.tempoController.updateTempo();
             this.pitchController.setPatternSequencer(this.patternSequencer);
+            this.pitchController.reloadState();
             IWaveProvider wp = new SampleToWaveProvider(patternSequencer);
             waveOut.Init(wp);
             waveOut.Play();
         }
 
-        private void Stop()
+        public void Stop()
         {
             if (waveOut != null)
             {
@@ -325,10 +357,10 @@ namespace OmniBeat
         public void clearEverything() 
         {
             //iterate over each dimensions/first array dereference
-            for (int i = 0; i <= drumBeats.Rank; i++)
+            for (int i = 0; i < drumBeats.GetLength(0); i++)
             {
                 //iterate over each element in the array at the ith dimension
-                for (int j = 0; j < drumBeats.GetLength(i); j++)
+                for (int j = 0; j < BeatMaker.MAX_BEATS; j++)
                 {
                     //set the jth beat for the ith instrument to false
                     drumBeats[i][j] = false;
@@ -345,10 +377,18 @@ namespace OmniBeat
             }
 
             //reset tempo to 1
-            tempoController.Tempo = 1;
+            tempoController.Tempo = 4;
 
-            //recolour GUI beat buttons
+            //reset pitch
+            this.pitchController.resetState();
+
+            //repaint gui
+            selectedKit = 0;
             updateBeatButtons();
+            updateSelectedClips();
+            updateSoundClipButtons();
+            this.tempoController.updateTempo();
+            this.pitchController.reloadState();
         }
     }
 }

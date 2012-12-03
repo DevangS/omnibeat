@@ -101,13 +101,13 @@ namespace OmniBeat
         {
             get
             {
-                return value[tempo];
+                return tempo;
             }
             set
             {
                 if (tempo != value)
                 {
-                    this.value[tempo] = value;
+                    this.tempo = value;
                     if (this.patternSequencer != null)
                     {
                         this.patternSequencer.Tempo = value;
